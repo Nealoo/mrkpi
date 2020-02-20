@@ -66,12 +66,12 @@
 			var kpiYear = document.querySelector("#kpi-form-year").value;
 			var kpiWeek = document.querySelector("#kpi-form-week").value;
 			
-			return {"baseInfo": {
+			return {
 				"email": kpiEmail,
 				"key": kpiKey,
 				"year": kpiYear,
 				"week": kpiWeek
-			}}
+			}
 		}
 		
 		function getHoursInfo(){
@@ -127,6 +127,19 @@
 				"voteReason": voteReason
 			}}
 		}
+		
+		document.querySelector('#kpi-form-get-points').addEventListener('click', function(){
+			console.log(getBasicInfo());
+			
+			var url = new URL('http://mrkpi.icu/getpoints/');
+
+			var params = getBasicInfo();
+
+			url.search = new URLSearchParams(params).toString();
+			
+			var textarea = document.querySelector("textarea");
+			textarea.value = JSON.stringify(fetch(url))
+		}, false);
 		
 		
 	</script>
