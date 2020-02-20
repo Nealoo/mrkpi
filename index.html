@@ -30,12 +30,12 @@
 		<button type="button" id="kpi-form-get-points">get points</button>
 		<hr/>
 
-		<input type="text" placeholder="leave" id="kpi-form-leave"></input>
 		<input type="text" placeholder="clientBillable" id="kpi-form-clientBillable"></input>
 		<input type="text" placeholder="companyPayProject" id="kpi-form-companyPayProject"></input>
 		<input type="text" placeholder="companyPayExtra" id="kpi-form-companyPayExtra"></input>
 		<input type="text" placeholder="afterHour" id="kpi-form-afterHour"></input>
 		<input type="text" placeholder="afterHourExtra" id="kpi-form-afterHourExtra"></input>
+		<input type="text" placeholder="leave" id="kpi-form-leave"></input>
 		<input type="text" placeholder="totalBillable" id="kpi-form-totalBillable"></input>
 		<input type="text" placeholder="totalActualWorking" id="kpi-form-totalActualWorking"></input>
 		<input type="text" placeholder="totalJiraWorking" id="kpi-form-totalJiraWorking"></input>
@@ -48,15 +48,89 @@
 		<button type="button" id="kpi-form-set-hours">set hours</button>
 		<hr/>
 
-		<input type="text" placeholder="voteType(helpVoteRecord or shareVoteRecord)" id="kpi-form-voteType"></input>
+		(helpVoteRecord or shareVoteRecord)
+		<input type="text" placeholder="voteType" id="kpi-form-voteType"></input>
 		<input type="text" placeholder="voteFor" id="kpi-form-voteFor"></input>
 		<input type="text" placeholder="votePoint" id="kpi-form-votePoint"></input>
 		<input type="text" placeholder="voteReason" id="kpi-form-voteReason"></input>
 
-		<button type="button" id="kpi-form-set-hours">set hours</button>
+		<button type="button" id="kpi-form-set-vote">set hours</button>
 		<hr/>
 	
 	</div>
+
+	<script>
+		function getBasicInfo(){
+			var kpiEmail = document.querySelector("#kpi-form-email").value;
+			var kpiKey = document.querySelector("#kpi-form-key").value;
+			var kpiYear = document.querySelector("#kpi-form-year").value;
+			var kpiWeek = document.querySelector("#kpi-form-week").value;
+			
+			return {"baseInfo": {
+				"email": kpiEmail,
+				"key": kpiKey,
+				"year": kpiYear,
+				"week": kpiWeek
+			}}
+		}
+		
+		function getHoursInfo(){
+			var clientBillable = document.querySelector("#kpi-form-clientBillable").value;
+			var companyPayProject = document.querySelector("#kpi-form-companyPayProject").value;
+			var companyPayExtra = document.querySelector("#kpi-form-companyPayExtra").value;
+			var afterHour = document.querySelector("#kpi-form-afterHour").value;
+			
+			var afterHourExtra = document.querySelector("#kpi-form-afterHourExtra").value;
+			var leave = document.querySelector("#kpi-form-leave").value;
+			var totalBillable = document.querySelector("#kpi-form-totalBillable").value;
+			var totalActualWorking = document.querySelector("#kpi-form-totalActualWorking").value;
+			
+			var totalJiraWorking = document.querySelector("#kpi-form-totalJiraWorking").value;
+			var fullAttendanceDay = document.querySelector("#kpi-form-fullAttendanceDay").value;
+			var logTimeDaily = document.querySelector("#kpi-form-logTimeDaily").value;
+			var planTimeDaily = document.querySelector("#kpi-form-planTimeDaily").value;
+			
+			var demoTopic = document.querySelector("#kpi-form-demoTopic").value;
+			var sharingTopic = document.querySelector("#kpi-form-sharingTopic").value;
+			
+			return {"hoursInfo": {
+				"clientBillable": clientBillable,
+				"companyPayProject": companyPayProject,
+				"companyPayExtra": companyPayExtra,
+				"afterHour": afterHour,
+				
+				"afterHourExtra": afterHourExtra,
+				"leave": leave,
+				"totalBillable": totalBillable,
+				"totalActualWorking": totalActualWorking,
+				
+				"totalJiraWorking": totalJiraWorking,
+				"fullAttendanceDay": fullAttendanceDay,
+				"logTimeDaily": logTimeDaily,
+				"planTimeDaily": planTimeDaily,
+				
+				"demoTopic": demoTopic,
+				"sharingTopic": sharingTopic
+			}}
+		}
+		
+		function getVoteInfo(){
+			var voteType = document.querySelector("#kpi-form-voteType").value;
+			var voteFor = document.querySelector("#kpi-form-voteFor").value;
+			var votePoint = document.querySelector("#kpi-form-votePoint").value;
+			var voteReason = document.querySelector("#kpi-form-voteReason").value;
+			
+			return {"voteInfo": {
+				"voteType": voteType,
+				"voteFor": voteFor,
+				"votePoint": votePoint,
+				"voteReason": voteReason
+			}}
+		}
+		
+		
+	</script>
+
 	<script>
 		var jsonObj = {};
 		var jsonViewer = new JSONViewer();
