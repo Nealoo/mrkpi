@@ -28,6 +28,8 @@
 		<input type="text" placeholder="week" id="kpi-form-week"></input>
 		
 		<button type="button" id="kpi-form-get-points">get points</button>
+		<button type="button" id="kpi-form-store-local">store in local</button>
+		<button type="button" id="kpi-form-clear-local">clear storage</button>
 		<hr/>
 
 		<input type="text" placeholder="clientBillable" id="kpi-form-clientBillable"></input>
@@ -92,8 +94,15 @@
 			
 			var demoTopic = document.querySelector("#kpi-form-demoTopic").value;
 			var sharingTopic = document.querySelector("#kpi-form-sharingTopic").value;
+
+			baseInfo = getBasicInfo();
 			
-			return {"hoursInfo": {
+			return {
+				"email": baseInfo.email,
+				"key": baseInfo.key,
+				"year": baseInfo.year,
+				"week": baseInfo.week,
+
 				"clientBillable": clientBillable,
 				"companyPayProject": companyPayProject,
 				"companyPayExtra": companyPayExtra,
@@ -111,7 +120,7 @@
 				
 				"demoTopic": demoTopic,
 				"sharingTopic": sharingTopic
-			}}
+			}
 		}
 		
 		function getVoteInfo(){
@@ -120,26 +129,102 @@
 			var votePoint = document.querySelector("#kpi-form-votePoint").value;
 			var voteReason = document.querySelector("#kpi-form-voteReason").value;
 			
-			return {"voteInfo": {
+			baseInfo = getBasicInfo();
+			
+			return {
+				"email": baseInfo.email,
+				"key": baseInfo.key,
+				"year": baseInfo.year,
+				"week": baseInfo.week,
+
 				"voteType": voteType,
 				"voteFor": voteFor,
 				"votePoint": votePoint,
 				"voteReason": voteReason
-			}}
+			}
 		}
 		
 		document.querySelector('#kpi-form-get-points').addEventListener('click', function(){
-			console.log(getBasicInfo());
 			
 			var url = new URL('http://api.mrkpi.icu/getpoints/');
 
 			var params = getBasicInfo();
 
 			url.search = new URLSearchParams(params).toString();
+
+			fetch(url).then(function(status){return status.json();}).then(function(res){
+				var textarea = document.querySelector("textarea");
+				textarea.value = JSON.stringify(res);
+
+				document.querySelector("button.load-json").click();
+			})
 			
-			var textarea = document.querySelector("textarea");
-			textarea.value = JSON.stringify(fetch(url))
+			
 		}, false);
+
+		document.querySelector('#kpi-form-set-hours').addEventListener('click', function(){
+			
+			var url = new URL('http://api.mrkpi.icu/sethours/');
+
+			var params = getHoursInfo();
+
+			fetch(url, {
+				method: 'POST',
+				body: JSON.stringify(params),
+				headers: {
+			      'content-type': 'application/json'
+			    }
+			}).then(function(status){return status.json();}).then(function(res){
+				var textarea = document.querySelector("textarea");
+				textarea.value = JSON.stringify(res);
+
+				document.querySelector("button.load-json").click();
+			})
+			
+			
+		}, false);
+
+		document.querySelector('#kpi-form-set-vote').addEventListener('click', function(){
+			
+			var url = new URL('http://api.mrkpi.icu/setvote/');
+
+			var params = getVoteInfo();
+
+			fetch(url, {
+				method: 'POST',
+				body: JSON.stringify(params),
+				headers: {
+			      'content-type': 'application/json'
+			    }
+			}).then(function(status){return status.json();}).then(function(res){
+				var textarea = document.querySelector("textarea");
+				textarea.value = JSON.stringify(res);
+
+				document.querySelector("button.load-json").click();
+			})
+			
+			
+		}, false);
+
+		document.querySelector('#kpi-form-store-local').addEventListener('click', function(){
+			value = getBasicInfo();
+			localStorage.setItem('mrkpiName', value.email)
+			localStorage.setItem('mrkpiKey', value.key)
+			localStorage.setItem('mrkpiYear', value.year)
+			localStorage.setItem('mrkpiWeek', value.week)
+		});
+
+		document.querySelector('#kpi-form-clear-local').addEventListener('click', function(){
+			localStorage.removeItem('mrkpiName');
+			localStorage.removeItem('mrkpiKey');
+			localStorage.removeItem('mrkpiYear');
+			localStorage.removeItem('mrkpiWeek');
+		});
+
+		document.querySelector("#kpi-form-email").value = localStorage.getItem('mrkpiName');
+		document.querySelector("#kpi-form-key").value = localStorage.getItem('mrkpiKey');
+		document.querySelector("#kpi-form-year").value = localStorage.getItem('mrkpiYear');
+		document.querySelector("#kpi-form-week").value = localStorage.getItem('mrkpiWeek');
 		
 		
 	</script>
