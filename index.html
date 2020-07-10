@@ -58,8 +58,36 @@
 
 		<button type="button" id="kpi-form-set-vote">set hours</button>
 		<hr/>
-	
+		
+		<ul>
+			<li><input readonly value="davidmayo@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="jamesprime@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="richard@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="jason@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="barrick@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="kai@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="davidmayo@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+			<li><input readonly value="jonathan@moustacherepublic.com" /><button onclick="copyText(this)">copy<button></li>
+		</ul>
+
+		<hr/>
 	</div>
+
+	<script>
+	
+		function copyText(textField) {
+		  /* Get the text field */
+		  var copyText = textField.previousSibling;
+           
+		  /* Select the text field */
+		  copyText.select();
+		  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+		  /* Copy the text inside the text field */
+		  document.execCommand("copy");
+		}
+		
+	</script>
 
 	<script>
 		function getBasicInfo(){
