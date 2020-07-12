@@ -44,6 +44,7 @@
 		<input type="text" placeholder="fullAttendanceDay" id="kpi-form-fullAttendanceDay"></input>
 		<input type="text" placeholder="logTimeDaily(1 or 0)" id="kpi-form-logTimeDaily"></input>
 		<input type="text" placeholder="planTimeDaily(0.5 or 0)" id="kpi-form-planTimeDaily"></input>
+		<input type="text" placeholder="writeShareDoc(0.5 or 0)" id="kpi-form-writeShareDoc"></input>
 		<input type="text" placeholder="demoTopic" id="kpi-form-demoTopic"></input>
 		<input type="text" placeholder="sharingTopic" id="kpi-form-sharingTopic"></input>
 
@@ -121,6 +122,7 @@
 			var logTimeDaily = document.querySelector("#kpi-form-logTimeDaily").value;
 			var planTimeDaily = document.querySelector("#kpi-form-planTimeDaily").value;
 			
+			var writeShareDoc = document.querySelector("#kpi-form-writeShareDoc").value;
 			var demoTopic = document.querySelector("#kpi-form-demoTopic").value;
 			var sharingTopic = document.querySelector("#kpi-form-sharingTopic").value;
 
@@ -147,6 +149,7 @@
 				"logTimeDaily": logTimeDaily,
 				"planTimeDaily": planTimeDaily,
 				
+				"writeShareDoc": writeShareDoc,
 				"demoTopic": demoTopic,
 				"sharingTopic": sharingTopic
 			}
