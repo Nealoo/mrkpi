@@ -155,7 +155,7 @@ report();
 		}, false);
 
 		document.querySelector('#kpi-form-store-local').addEventListener('click', function(){
-			value = getBasicInfo();
+			var value = getBasicInfo();
 			localStorage.setItem('mrkpiName', value.email)
 			localStorage.setItem('mrkpiKey', value.key)
 			localStorage.setItem('mrkpiYear', value.year)
