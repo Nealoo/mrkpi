@@ -4,81 +4,79 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>MR KPI TEST</title>
+		<title>MR KPI V1</title>
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="./public/js/bundle.css">
 	</head>
 <body>
-	<h1 style="text-decoration: underline;">KPI PROTOTYPE</h1>
-	<h2 style="display:none">JSON stringified value:</h2>
-	<textarea style="display:none; width: 100%; min-height: 100px;"></textarea>
-	<p style="display:none">Choose action:</p>
-	<div style="display:none">
-		<button type="button" class="load-json">Load JSON</button>
-		<button type="button" class="collapse">Collapse to level 1</button>
-		<button type="button" class="maxlvl">Show JSON to level 1</button>
-	</div>
-	<h2>KPI API response:</h2>
-	<div id="json"></div>
-	
-	<div id="kpi-form">
-	
-		<input type="text" placeholder="email" id="kpi-form-email"></input>
-		<input type="text" placeholder="key" id="kpi-form-key"></input>
-		<input type="text" placeholder="year" id="kpi-form-year"></input>
-		<input type="text" placeholder="week" id="kpi-form-week"></input>
-		
-		<button type="button" id="kpi-form-get-points">get points</button>
-		<button type="button" id="kpi-form-store-local">store in local</button>
-		<button type="button" id="kpi-form-clear-local">clear storage</button>
-		<hr/>
-
-		<input type="text" placeholder="clientBillable" id="kpi-form-clientBillable"></input>
-		<input type="text" placeholder="companyPayProject" id="kpi-form-companyPayProject"></input>
-		<input type="text" placeholder="companyPayExtra" id="kpi-form-companyPayExtra"></input>
-		<input type="text" placeholder="afterHour" id="kpi-form-afterHour"></input>
-		<input type="text" placeholder="afterHourExtra" id="kpi-form-afterHourExtra"></input>
-		<input type="text" placeholder="leave" id="kpi-form-leave"></input>
-		<input type="text" placeholder="totalBillable" id="kpi-form-totalBillable"></input>
-		<input type="text" placeholder="totalActualWorking" id="kpi-form-totalActualWorking"></input>
-		<input type="text" placeholder="totalJiraWorking" id="kpi-form-totalJiraWorking"></input>
-		<input type="text" placeholder="fullAttendanceDay" id="kpi-form-fullAttendanceDay"></input>
-		<input type="text" placeholder="logTimeDaily(1 or 0)" id="kpi-form-logTimeDaily"></input>
-		<input type="text" placeholder="planTimeDaily(0.5 or 0)" id="kpi-form-planTimeDaily"></input>
-		<input type="text" placeholder="writeShareDoc(0.5 or 0)" id="kpi-form-writeShareDoc"></input>
-		<input type="text" placeholder="demoTopic" id="kpi-form-demoTopic"></input>
-		<input type="text" placeholder="sharingTopic" id="kpi-form-sharingTopic"></input>
-
-		<button type="button" id="kpi-form-set-hours">set hours</button>
-		<hr/>
-
-		<select id="kpi-form-voteType">
-			<option value="">voteType...</option>
-			<option value="shareVoteRecord">shareVoteRecord</option>
-			<option value="helpVoteRecord">helpVoteRecord</option>
-		</select>
-		<div class="email-container">
-		    <div class="email-dropdown-container"></div>
-		    <div class="email-result-container"></div>
-		<input type="text" placeholder="voteFor" id="kpi-form-voteFor" class="email-result-input" style="width:500px">
+	<div class="container">
+		<h1 class="my-4">KPI VERSION ONE<small class="text-muted">  The MR performance tracking tool</small></h1>
+		<textarea style="display:none; width: 100%; min-height: 100px;"></textarea>
+		<div style="display:none">
+			<button type="button" class="load-json">Load JSON</button>
+			<button type="button" class="collapse">Collapse to level 1</button>
+			<button type="button" class="maxlvl">Show JSON to level 1</button>
 		</div>
-		<input type="text" placeholder="votePoint" id="kpi-form-votePoint"></input>
-		<input type="text" placeholder="voteReason" id="kpi-form-voteReason"></input>
-
-		<button type="button" id="kpi-form-set-vote">set votes</button>
-		<hr/>
+		<h2>KPI API response:</h2>
+		<div id="json"></div>
 		
+		<div id="kpi-form">
+		
+			<input type="text" placeholder="email" id="kpi-form-email"></input>
+			<input type="text" placeholder="key" id="kpi-form-key"></input>
+			<input type="text" placeholder="year" id="kpi-form-year"></input>
+			<input type="text" placeholder="week" id="kpi-form-week"></input>
+			
+			<button type="button" id="kpi-form-get-points">get points</button>
+			<button type="button" id="kpi-form-store-local">store in local</button>
+			<button type="button" id="kpi-form-clear-local">clear storage</button>
+			<hr/>
+
+			<input type="text" placeholder="clientBillable" id="kpi-form-clientBillable"></input>
+			<input type="text" placeholder="companyPayProject" id="kpi-form-companyPayProject"></input>
+			<input type="text" placeholder="companyPayExtra" id="kpi-form-companyPayExtra"></input>
+			<input type="text" placeholder="afterHour" id="kpi-form-afterHour"></input>
+			<input type="text" placeholder="afterHourExtra" id="kpi-form-afterHourExtra"></input>
+			<input type="text" placeholder="leave" id="kpi-form-leave"></input>
+			<input type="text" placeholder="totalBillable" id="kpi-form-totalBillable"></input>
+			<input type="text" placeholder="totalActualWorking" id="kpi-form-totalActualWorking"></input>
+			<input type="text" placeholder="totalJiraWorking" id="kpi-form-totalJiraWorking"></input>
+			<input type="text" placeholder="fullAttendanceDay" id="kpi-form-fullAttendanceDay"></input>
+			<input type="text" placeholder="logTimeDaily(1 or 0)" id="kpi-form-logTimeDaily"></input>
+			<input type="text" placeholder="planTimeDaily(0.5 or 0)" id="kpi-form-planTimeDaily"></input>
+			<input type="text" placeholder="writeShareDoc(0.5 or 0)" id="kpi-form-writeShareDoc"></input>
+			<input type="text" placeholder="demoTopic" id="kpi-form-demoTopic"></input>
+			<input type="text" placeholder="sharingTopic" id="kpi-form-sharingTopic"></input>
+
+			<button type="button" id="kpi-form-set-hours">set hours</button>
+			<hr/>
+
+			<select id="kpi-form-voteType">
+				<option value="">voteType...</option>
+				<option value="shareVoteRecord">shareVoteRecord</option>
+				<option value="helpVoteRecord">helpVoteRecord</option>
+			</select>
+			<div class="email-container">
+				<div class="email-dropdown-container"></div>
+				<div class="email-result-container"></div>
+			<input type="text" placeholder="voteFor" id="kpi-form-voteFor" class="email-result-input" style="width:500px">
+			</div>
+			<input type="text" placeholder="votePoint" id="kpi-form-votePoint"></input>
+			<input type="text" placeholder="voteReason" id="kpi-form-voteReason"></input>
+
+			<button type="button" id="kpi-form-set-vote">set votes</button>
+			<hr/>
+			
+		</div>
+
+		<div>
+			<button id="kpi-season-query">tell me about the season 3</button>
+			<hr />
+			<canvas id="kpi-season-chart" width="400" height="400"></canvas>
+			<hr />
+		</div>
 	</div>
-
-	<div>
-		<button id="kpi-season-query">tell me about the season 3</button>
-		<hr />
-		<canvas id="kpi-season-chart" width="400" height="400"></canvas>
-		<hr />
-	</div>
-
-
-
 	<script src="./public/js/bundle.js"></script>
 </body>
 </html>

@@ -4,12 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: "development",
-    entry: [
-        "./src/js/index.js"
-    ],
+    entry: {
+        "js/bundle" : "./src/js/index.js"
+    },
     output: {
-        path: path.resolve(__dirname, "public/js"),
-        filename: "bundle.js"
+        path: path.resolve(__dirname, "public"),
+        filename: "[name].js"
     },
     module: {
         rules: [
@@ -30,8 +30,8 @@ module.exports = {
                 //   process.env.NODE_ENV !== 'production'
                 //     ? 'style-loader'
                 //     : MiniCssExtractPlugin.loader,
-                // MiniCssExtractPlugin.loader,
-                  'style-loader',
+                MiniCssExtractPlugin.loader,
+                //   'style-loader',
                   'css-loader',
                   'sass-loader',
                 ],
