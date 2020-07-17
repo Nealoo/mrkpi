@@ -1,7 +1,8 @@
 /**
  * JSONViewer - by Roman Makudera 2016 (c) MIT licence.
  */
-var JSONViewer = (function() {
+
+
 	var JSONViewer = function() {
 		this._dom = {};
 		this._dom.container = document.createElement("pre");
@@ -292,5 +293,4 @@ var JSONViewer = (function() {
 		return (count + " " + itemsTxt);
 	};
 
-	return JSONViewer;
-})();
+	export default JSONViewer;
