@@ -219,32 +219,34 @@ report();
 		// vote select code start
 		const emailResults = [];
 
-		const emailDropdownContainer = document.getElementsByClassName('email-dropdown-container')[0];
-		const emailNames = [
-		    'davidmayo',
-		    'jamesprime',
-		    'richard',
-		    'jason',
-		    'kai',
-		    'john',
-		    'barrick',
-		    'jonathan'
-		]
-		const emailDropdown = document.createElement('select');
-		emailDropdown.classList.add('email-dropdown');
-		const placeholderOption = document.createElement('option');
-		placeholderOption.setAttribute('disabled', true);
-		placeholderOption.setAttribute('selected', true);
-		placeholderOption.innerHTML = 'Select an email';
-		    emailDropdown.appendChild(placeholderOption);
-		emailNames.forEach(email => {
-		    email += '@moustacherepublic.com';
-		    const emailOption = document.createElement('option');
-		    emailOption.setAttribute('value', email);
-		    emailOption.innerHTML = email;
-		    emailDropdown.appendChild(emailOption);
-		});
-		emailDropdownContainer.appendChild(emailDropdown);
+		// const emailDropdownContainer = document.getElementsByClassName('email-dropdown-container')[0];
+		// const emailNames = [
+		//     'davidmayo',
+		//     'jamesprime',
+		//     'richard',
+		//     'jason',
+		//     'kai',
+		//     'john',
+		//     'barrick',
+		//     'jonathan'
+		// ]
+		// const emailDropdown = document.createElement('select');
+		// emailDropdown.classList.add('email-dropdown');
+		// const placeholderOption = document.createElement('option');
+		// placeholderOption.setAttribute('disabled', true);
+		// placeholderOption.setAttribute('selected', true);
+		// placeholderOption.innerHTML = 'Select an email';
+		//     emailDropdown.appendChild(placeholderOption);
+		// emailNames.forEach(email => {
+		//     email += '@moustacherepublic.com';
+		//     const emailOption = document.createElement('option');
+		//     emailOption.setAttribute('value', email);
+		//     emailOption.innerHTML = email;
+		//     emailDropdown.appendChild(emailOption);
+		// });
+		// emailDropdownContainer.appendChild(emailDropdown);
+
+		const emailDropdown = document.getElementsByClassName('email-dropdown')[0];
 
 		emailDropdown.addEventListener('change', () => {
 		    const selectedEmail = emailDropdown.options[emailDropdown.selectedIndex].value;

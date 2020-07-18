@@ -11,143 +11,189 @@
 	</head>
 <body>
 	<div class="container">
+
 		<h1 class="my-4">KPI VERSION ONE<small class="text-muted">  The MR performance tracking tool</small></h1>
-		<textarea style="display:none; width: 100%; min-height: 100px;"></textarea>
-		<div style="display:none">
-			<button type="button" class="load-json">Load JSON</button>
-			<button type="button" class="collapse">Collapse to level 1</button>
-			<button type="button" class="maxlvl">Show JSON to level 1</button>
-		</div>
-		<h2>KPI API response:</h2>
-		<div id="json"></div>
+
+		<div class="row">
+
+			<div class="col-12 col-md-6 order-md-2 sticky-top vh-100 overflow-auto">
+				<textarea style="display:none; width: 100%; min-height: 100px;"></textarea>
+				<div style="display:none">
+					<button type="button" class="load-json">Load JSON</button>
+					<button type="button" class="collapse">Collapse to level 1</button>
+					<button type="button" class="maxlvl">Show JSON to level 1</button>
+				</div>
+				<h2>KPI API response:</h2>
+				<div id="json">
+					<p>
+						Please allow up to 20 second after you click on the button to wake the Heroku app.<br>
+						<b>Loading button</b> will be coming before 2022 S4.
+					</p>
+					<p>
+						API response will be displayed here directly.<br>
+						Data handling will be implemented before 2060.
+					</p>
+					
+				</div>
+			</div>
+
+			<div class="col-12 col-md-6 order-md-1">
+				<div id="kpi-form">
+
+					<div class="form-group">
+						<label for="kpi-form-email">Email</label>
+						<input type="email" class="form-control" id="kpi-form-email">
+					</div>
 		
-		<div id="kpi-form">
-
-			<div class="form-group">
-				<label for="kpi-form-email">Email</label>
-				<input type="email" class="form-control" id="kpi-form-email">
+					<div class="form-group">
+						<label for="kpi-form-key">Key</label>
+						<input type="password" class="form-control" id="kpi-form-key">
+						<small class="form-text text-muted">Never share your key with others.</small>
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-year">Year</label>
+						<input type="text" class="form-control" id="kpi-form-year">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-week">Week</label>
+						<input type="text" class="form-control" id="kpi-form-week">
+					</div>
+					
+					<button type="button" id="kpi-form-get-points" class="btn btn-primary">get points</button>
+					<button type="button" id="kpi-form-store-local" class="btn btn-primary">store in local</button>
+					<button type="button" id="kpi-form-clear-local" class="btn btn-primary">clear storage</button>
+					<hr/>
+		
+					<div class="form-group">
+						<label for="kpi-form-clientBillable">clientBillable</label>
+						<input type="text" class="form-control" id="kpi-form-clientBillable">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-companyPayProject">companyPayProject</label>
+						<input type="text" class="form-control" id="kpi-form-companyPayProject">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-companyPayExtra">companyPayExtra</label>
+						<input type="text" class="form-control" id="kpi-form-companyPayExtra">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-afterHour">afterHour</label>
+						<input type="text" class="form-control" id="kpi-form-afterHour">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-afterHourExtra">afterHourExtra</label>
+						<input type="text" class="form-control" id="kpi-form-afterHourExtra">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-leave">leave</label>
+						<input type="text" class="form-control" id="kpi-form-leave">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-totalBillable">totalActualWorking</label>
+						<input type="text" class="form-control" id="kpi-form-totalBillable">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-totalActualWorking">totalBillable</label>
+						<input type="text" class="form-control" id="kpi-form-totalActualWorking">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
+						<input type="text" class="form-control" id="kpi-form-totalJiraWorking">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-fullAttendanceDay">fullAttendanceDay</label>
+						<input type="text" class="form-control" id="kpi-form-fullAttendanceDay">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-logTimeDaily">logTimeDaily(1 or 0)</label>
+						<input type="text" class="form-control" id="kpi-form-logTimeDaily">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-planTimeDaily">planTimeDaily(0.5 or 0)</label>
+						<input type="text" class="form-control" id="kpi-form-planTimeDaily">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-writeShareDoc">writeShareDoc(0.5 or 0)</label>
+						<input type="text" class="form-control" id="kpi-form-writeShareDoc">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-demoTopic">demoTopic</label>
+						<input type="text" class="form-control" id="kpi-form-demoTopic">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-sharingTopic">sharingTopic</label>
+						<input type="text" class="form-control" id="kpi-form-sharingTopic">
+					</div>
+		
+		
+					<button type="button" id="kpi-form-set-hours" class="btn btn-primary">set hours</button>
+					<hr/>
+		
+					<select id="kpi-form-voteType" class="form-control">
+						<option value="">voteType...</option>
+						<option value="shareVoteRecord">shareVoteRecord</option>
+						<option value="helpVoteRecord">helpVoteRecord</option>
+					</select>
+					<div class="email-container my-4">
+						<div class="email-dropdown-container">
+							<select class="email-dropdown form-control">
+								<option disabled="true" selected="true">Select an email</option>
+								<option value="davidmayo@moustacherepublic.com">davidmayo@moustacherepublic.com</option>
+								<option value="jamesprime@moustacherepublic.com">jamesprime@moustacherepublic.com</option>
+								<option value="richard@moustacherepublic.com">richard@moustacherepublic.com</option>
+								<option value="jason@moustacherepublic.com">jason@moustacherepublic.com</option>
+								<option value="kai@moustacherepublic.com">kai@moustacherepublic.com</option>
+								<option value="john@moustacherepublic.com">john@moustacherepublic.com</option>
+								<option value="barrick@moustacherepublic.com">barrick@moustacherepublic.com</option>
+								<option value="jonathan@moustacherepublic.com">jonathan@moustacherepublic.com</option>
+							</select>
+						</div>
+						<div class="email-result-container my-4"></div>
+						<div class="form-group">
+							<label for="kpi-form-voteFor">voteFor</label>
+							<textarea type="text" class="form-control email-result-input" id="kpi-form-voteFor" style="height: 100px;"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="kpi-form-votePoint">votePoint</label>
+						<input type="text" class="form-control" id="kpi-form-votePoint">
+					</div>
+		
+					<div class="form-group">
+						<label for="kpi-form-voteReason">voteReason</label>
+						<input type="text" class="form-control" id="kpi-form-sharingTopic">
+					</div>
+		
+					<button type="button" id="kpi-form-set-vote" class="btn btn-primary">set votes</button>
+					<hr/>
+					
+				</div>
 			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-key">Key</label>
-				<input type="password" class="form-control" id="kpi-form-key">
-				<small class="form-text text-muted">Never share your key with others.</small>
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-year">Year</label>
-				<input type="text" class="form-control" id="kpi-form-year">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-week">Week</label>
-				<input type="text" class="form-control" id="kpi-form-week">
-			</div>
-			
-			<button type="button" id="kpi-form-get-points">get points</button>
-			<button type="button" id="kpi-form-store-local">store in local</button>
-			<button type="button" id="kpi-form-clear-local">clear storage</button>
-			<hr/>
-
-			<div class="form-group">
-				<label for="kpi-form-clientBillable">clientBillable</label>
-				<input type="text" class="form-control" id="kpi-form-clientBillable">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-companyPayProject">companyPayProject</label>
-				<input type="text" class="form-control" id="kpi-form-companyPayProject">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-companyPayExtra">companyPayExtra</label>
-				<input type="text" class="form-control" id="kpi-form-companyPayExtra">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-afterHour">afterHour</label>
-				<input type="text" class="form-control" id="kpi-form-afterHour">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-afterHourExtra">afterHourExtra</label>
-				<input type="text" class="form-control" id="kpi-form-afterHourExtra">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-leave">leave</label>
-				<input type="text" class="form-control" id="kpi-form-leave">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-totalBillable">totalActualWorking</label>
-				<input type="text" class="form-control" id="kpi-form-totalBillable">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-totalActualWorking">totalBillable</label>
-				<input type="text" class="form-control" id="kpi-form-totalActualWorking">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
-				<input type="text" class="form-control" id="kpi-form-totalJiraWorking">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-fullAttendanceDay">fullAttendanceDay</label>
-				<input type="text" class="form-control" id="kpi-form-fullAttendanceDay">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-logTimeDaily">logTimeDaily(1 or 0)</label>
-				<input type="text" class="form-control" id="kpi-form-logTimeDaily">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-planTimeDaily">planTimeDaily(0.5 or 0)</label>
-				<input type="text" class="form-control" id="kpi-form-planTimeDaily">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-writeShareDoc">writeShareDoc(0.5 or 0)</label>
-				<input type="text" class="form-control" id="kpi-form-writeShareDoc">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-demoTopic">demoTopic</label>
-				<input type="text" class="form-control" id="kpi-form-demoTopic">
-			</div>
-
-			<div class="form-group">
-				<label for="kpi-form-sharingTopic">sharingTopic</label>
-				<input type="text" class="form-control" id="kpi-form-sharingTopic">
-			</div>
-
-
-			<button type="button" id="kpi-form-set-hours">set hours</button>
-			<hr/>
-
-			<select id="kpi-form-voteType">
-				<option value="">voteType...</option>
-				<option value="shareVoteRecord">shareVoteRecord</option>
-				<option value="helpVoteRecord">helpVoteRecord</option>
-			</select>
-			<div class="email-container">
-				<div class="email-dropdown-container"></div>
-				<div class="email-result-container"></div>
-			<input type="text" placeholder="voteFor" id="kpi-form-voteFor" class="email-result-input" style="width:500px">
-			</div>
-			<input type="text" placeholder="votePoint" id="kpi-form-votePoint"></input>
-			<input type="text" placeholder="voteReason" id="kpi-form-voteReason"></input>
-
-			<button type="button" id="kpi-form-set-vote">set votes</button>
-			<hr/>
-			
 		</div>
+
+		
+		
+		
+		
 
 		<div>
-			<button id="kpi-season-query">tell me about the season 3</button>
+			<button id="kpi-season-query" class="btn btn-primary">tell me about the season 3</button>
 			<hr />
 			<canvas id="kpi-season-chart" width="400" height="400"></canvas>
 			<hr />
