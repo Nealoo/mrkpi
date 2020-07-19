@@ -42,7 +42,7 @@ report();
 			var demoTopic = document.querySelector("#kpi-form-demoTopic").value;
 			var sharingTopic = document.querySelector("#kpi-form-sharingTopic").value;
 
-			baseInfo = getBasicInfo();
+			var baseInfo = getBasicInfo();
 			
 			return {
 				"email": baseInfo.email,
@@ -76,8 +76,9 @@ report();
 			var voteFor = document.querySelector("#kpi-form-voteFor").value;
 			var votePoint = document.querySelector("#kpi-form-votePoint").value;
 			var voteReason = document.querySelector("#kpi-form-voteReason").value;
+			var skipVote = document.querySelector("input[name=kpi-form-skipvote]:checked").value;
 			
-			baseInfo = getBasicInfo();
+			var baseInfo = getBasicInfo();
 			
 			return {
 				"email": baseInfo.email,
@@ -88,7 +89,8 @@ report();
 				"voteType": voteType,
 				"voteFor": voteFor,
 				"votePoint": votePoint,
-				"voteReason": voteReason
+				"voteReason": voteReason,
+				"skipVote": skipVote
 			}
 		}
 		
@@ -134,7 +136,9 @@ report();
 
 		document.querySelector('#kpi-form-set-vote').addEventListener('click', function(){
 			
-			var url = new URL('http://api.mrkpi.icu/setvote/');
+			// var url = new URL('http://api.mrkpi.icu/setvote/');
+
+			var url = new URL('http://localhost:5000/setvote/');
 
 			var params = getVoteInfo();
 

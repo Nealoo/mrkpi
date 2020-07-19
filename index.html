@@ -150,6 +150,18 @@
 						<option value="shareVoteRecord">shareVoteRecord</option>
 						<option value="helpVoteRecord">helpVoteRecord</option>
 					</select>
+					<div class="form-check my-4">
+						<input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-true" value="True" checked>
+						<label class="form-check-label" for="kpi-form-skipvote-true">
+						  Skip vote
+						</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-false" value="False" checked>
+						<label class="form-check-label" for="kpi-form-skipvote-false">
+						  Not skip vote
+						</label>
+					</div>
 					<div class="email-container my-4">
 						<div class="email-dropdown-container">
 							<select class="email-dropdown form-control">
@@ -177,7 +189,7 @@
 		
 					<div class="form-group">
 						<label for="kpi-form-voteReason">voteReason</label>
-						<input type="text" class="form-control" id="kpi-form-sharingTopic">
+						<input type="text" class="form-control" id="kpi-form-voteReason">
 					</div>
 		
 					<button type="button" id="kpi-form-set-vote" class="btn btn-primary">set votes</button>
