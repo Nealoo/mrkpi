@@ -24,11 +24,18 @@ export default function(){
 
         function processChartWithData(reportData){
 
+            if(!(reportData && reportData.response && reportData.response.data)){
+                return false;
+            }
+
+            delete reportData.response.data['jonathan@moustacherepublic.com']
+            delete reportData.response.data['barrick@moustacherepublic.com']
+
             let labelsArray = [];
             let hoursArray = [];
             let pointsArray = [];
             
-            $.each(reportData && reportData.response && reportData.response.data, (email, data)=>{
+            $.each(reportData.response.data, (email, data)=>{
                 labelsArray.push(email.replace('@moustacherepublic.com', ''));
                 let totalHours = Number(data.totalExtraKPIHours) + Number(data.totalNormalKPIHours)
                 hoursArray.push(totalHours);
