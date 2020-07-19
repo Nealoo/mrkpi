@@ -136,9 +136,9 @@ report();
 
 		document.querySelector('#kpi-form-set-vote').addEventListener('click', function(){
 			
-			// var url = new URL('http://api.mrkpi.icu/setvote/');
+			var url = new URL('http://api.mrkpi.icu/setvote/');
 
-			var url = new URL('http://localhost:5000/setvote/');
+			// var url = new URL('http://localhost:5000/setvote/');
 
 			var params = getVoteInfo();
 
