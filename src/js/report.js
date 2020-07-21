@@ -13,8 +13,8 @@ export default function(){
         userParams.season = '3';
 
         $.ajax({
-            // url: 'http://api.mrkpi.icu/getseasonpoints/',
-            url: 'http://localhost:5000/getseasonpoints/',
+            url: 'http://api.mrkpi.icu/getseasonpoints/',
+            // url: 'http://localhost:5000/getseasonpoints/',
             method: 'POST',
             data: userParams
         }).done((res)=>{
@@ -30,8 +30,8 @@ export default function(){
         let userParams = getBaseUserInfo();
 
         $.ajax({
-            // url: 'http://api.mrkpi.icu/getweekpoints/',
-            url: 'http://localhost:5000/getweekpoints/',
+            url: 'http://api.mrkpi.icu/getweekpoints/',
+            // url: 'http://localhost:5000/getweekpoints/',
             method: 'POST',
             data: userParams
         }).done((res)=>{
@@ -64,11 +64,15 @@ export default function(){
         let maxExtra = 0;
         let maxGoal = 0;
         let maxPerformance = 0;
+        let maxSharing = 0;
+        let maxHelping = 0;
 
         let sumAttitude = 0;
         let sumExtra = 0;
         let sumGoal = 0;
         let sumPerformance = 0;
+        let sumSharing = 0;
+        let sumHelping = 0;
         
         $.each(seasonData, (email, data)=>{
             labelsArray.push(email.replace('@moustacherepublic.com', ''));
@@ -80,11 +84,15 @@ export default function(){
             sumExtra += Number(data.totalExtra);
             sumGoal += Number(data.totalGoal);
             sumPerformance += Number(data.totalPerformance);
+            sumSharing += Number(data.totalSharing)
+            sumHelping += Number(data.totalHelping)
 
-            maxAttitude = data.totalAttitude > maxAttitude ? data.totalAttitude : maxAttitude;
-            maxExtra    = data.totalExtra    > maxExtra    ? data.totalExtra    : maxExtra;
-            maxGoal     = data.totalGoal     > maxGoal     ? data.totalGoal     : maxGoal;
+            maxAttitude    = data.totalAttitude    > maxAttitude    ? data.totalAttitude    : maxAttitude;
+            maxExtra       = data.totalExtra       > maxExtra       ? data.totalExtra       : maxExtra;
+            maxGoal        = data.totalGoal        > maxGoal        ? data.totalGoal        : maxGoal;
             maxPerformance = data.totalPerformance > maxPerformance ? data.totalPerformance : maxPerformance;
+            maxSharing     = data.totalSharing     > maxSharing     ? data.totalSharing     : maxSharing;
+            maxHelping     = data.totalHelping     > maxHelping     ? data.totalHelping     : maxHelping;
 
         });
 
@@ -94,6 +102,8 @@ export default function(){
         let avgExtra = sumExtra/seasonDataLen;
         let avgGoal = sumGoal/seasonDataLen;
         let avgPerformance = sumPerformance/seasonDataLen;
+        let avgSharing = sumSharing/seasonDataLen;
+        let avgHelping = sumHelping/seasonDataLen;
 
         let userParams = getBaseUserInfo();
         let currentUserData = seasonData[userParams.email];
@@ -101,14 +111,18 @@ export default function(){
             currentUserData.totalAttitude/maxAttitude,
             currentUserData.totalExtra/maxExtra,
             currentUserData.totalGoal/maxGoal,
-            currentUserData.totalPerformance/maxPerformance
+            currentUserData.totalPerformance/maxPerformance,
+            currentUserData.totalSharing/maxSharing,
+            currentUserData.totalHelping/maxHelping
         )
 
         avgRadarArray.push(
             avgAttitude/maxAttitude,
             avgExtra/maxExtra,
             avgGoal/maxGoal,
-            avgPerformance/maxPerformance
+            avgPerformance/maxPerformance,
+            avgSharing/maxSharing,
+            avgHelping/maxHelping
         );
 
         // console.log(
@@ -188,7 +202,7 @@ export default function(){
         var myRadarChart = new Chart(ctxRadar, {
             type: 'radar',
             data: {
-                labels: ['Attitude', 'Extra', 'Goal', 'Performance'],
+                labels: ['Attitude', 'Extra', 'Goal', 'Performance(inc.Sharing/Helping)', 'Sharing', 'Helping'],
                 datasets: [{
                     data: radarArray,
                     label: 'My data',
