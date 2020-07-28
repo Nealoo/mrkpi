@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>utilisation report</title>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" href="./public/js/bundle.css">
+	</head>
+<body>
+	<div class="container">
+    <h1 class="my-4">utilisation report</h1>
+    <div class="row">
+        <div class="col-12">
+    
+                <div class="form-group">
+                    <label for="utilisation-key">Key</label>
+                    <input type="password" class="form-control" id="utilisation-key">
+                    <small class="form-text text-muted">Never share your key with others.</small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="utilisation-year">Year</label>
+                    <input type="text" class="form-control" id="utilisation-year">
+                </div>
+
+                <div class="form-group">
+                  <label for="utilisation-month">Month</label>
+                  <input type="text" class="form-control" id="utilisation-month">
+                </div>
+    
+                <div class="form-group">
+                    <label for="utilisation-week">Week</label>
+                    <input type="text" class="form-control" id="utilisation-week">
+                </div>
+
+                <div class="form-group">
+                  <label for="utilisation-startdate">startdate</label>
+                  <input type="text" class="form-control" id="utilisation-startdate">
+                  <small class="form-text text-muted">e.g. 2020-1-20</small>
+                </div>
+
+              <div class="form-group">
+                <label for="utilisation-enddate">enddate</label>
+                <input type="text" class="form-control" id="utilisation-enddate">
+                <small class="form-text text-muted">e.g. 2020-1-20</small>
+              </div>
+                
+              <button type="button" id="utilisation-get-data" class="btn btn-primary">get data</button>
+              <button type="button" id="utilisation-store-key" class="btn btn-primary">store key in local</button>
+          </div>
+      </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Billable</th>
+                <th scope="col">Worked</th>
+                <th scope="col">Required</th>
+                <th scope="col">Leave</th>
+                <th scope="col">Adjusted Required</th>
+                <th scope="col">Utilisation</th>
+                <th scope="col">Billable Utilisation</th>
+                <th scope="col">Billable:Worked</th>
+                <th scope="col">Target</th>
+              </tr>
+            </thead>
+            <tbody id="utilisation-tbody">
+            </tbody>
+          </table>
+    </div>
+
+    <script src="./public/js/bundle.js"></script>
+
+	<script>
+		window.mrkpi_main_function('utilisation');
+	</script>
+</body>
+</html>

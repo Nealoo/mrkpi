@@ -11,3 +11,21 @@ export function getBaseUserInfo(){
         "week": kpiWeek
     }
 }
+
+export function getBaseUtilisationInfo(){
+    let key = document.querySelector("#utilisation-key").value;
+    let year = document.querySelector("#utilisation-year").value;
+    let month = document.querySelector("#utilisation-month").value;
+    let week = document.querySelector("#utilisation-week").value;
+    let startDate = document.querySelector("#utilisation-startdate").value;
+    let endDate = document.querySelector("#utilisation-enddate").value;
+    
+    return {
+        "key": key,
+        "year": year,
+        "month": month,
+        "week": week,
+        "startDate": startDate,
+        "endDate": endDate
+    }
+}
