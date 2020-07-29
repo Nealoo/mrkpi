@@ -36,18 +36,19 @@
                     <input type="text" class="form-control" id="utilisation-week">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group d-none">
                   <label for="utilisation-startdate">startdate</label>
                   <input type="text" class="form-control" id="utilisation-startdate">
                   <small class="form-text text-muted">e.g. 2020-1-20</small>
                 </div>
 
-              <div class="form-group">
+              <div class="form-group d-none">
                 <label for="utilisation-enddate">enddate</label>
                 <input type="text" class="form-control" id="utilisation-enddate">
                 <small class="form-text text-muted">e.g. 2020-1-20</small>
               </div>
                 
+              <button type="button" id="utilisation-get-cache" class="btn btn-primary">get cache</button>
               <button type="button" id="utilisation-get-data" class="btn btn-primary">get data</button>
               <button type="button" id="utilisation-store-key" class="btn btn-primary">store key in local</button>
           </div>
@@ -61,6 +62,7 @@
                 <th scope="col">Worked</th>
                 <th scope="col">Required</th>
                 <th scope="col">Leave</th>
+                <th scope="col">Adjusted Worked</th>
                 <th scope="col">Adjusted Required</th>
                 <th scope="col">Utilisation</th>
                 <th scope="col">Billable Utilisation</th>
