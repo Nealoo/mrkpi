@@ -21,9 +21,9 @@ export default function(){
     }
     
     function getHoursInfo(){
-        var clientBillable = document.querySelector("#kpi-form-clientBillable").value;
-        var companyPayProject = document.querySelector("#kpi-form-companyPayProject").value;
-        var companyPayExtra = document.querySelector("#kpi-form-companyPayExtra").value;
+        // var clientBillable = document.querySelector("#kpi-form-clientBillable").value;
+        // var companyPayProject = document.querySelector("#kpi-form-companyPayProject").value;
+        // var companyPayExtra = document.querySelector("#kpi-form-companyPayExtra").value;
         var afterHour = document.querySelector("#kpi-form-afterHour").value;
         
         var afterHourExtra = document.querySelector("#kpi-form-afterHourExtra").value;
@@ -48,9 +48,9 @@ export default function(){
             "year": baseInfo.year,
             "week": baseInfo.week,
 
-            "clientBillable": clientBillable,
-            "companyPayProject": companyPayProject,
-            "companyPayExtra": companyPayExtra,
+            // "clientBillable": clientBillable,
+            // "companyPayProject": companyPayProject,
+            // "companyPayExtra": companyPayExtra,
             "afterHour": afterHour,
             
             "afterHourExtra": afterHourExtra,
