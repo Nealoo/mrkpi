@@ -74,23 +74,48 @@ export default function(){
 
 function tableRowTemplate(data){
     return `
-        ${Object.keys(data.response.members).map((userName)=>{
+        ${Object.keys(data.response.members).map((userName, index)=>{
+            const billableHours = data.response.members[userName].billed_hours;
+            const workingHours  = data.response.members[userName].logged_hours;
+            const requiredHours = data.response.required_hours;
+            const leaveHours    = data.response.members[userName].leave_logged;
+            const leaveBillable = data.response.members[userName].leave_billed;
+
+            const adjustedBillable = billableHours - leaveBillable;
+            const adjustedWorked   = workingHours - leaveHours;
+            const adjustedRequired = requiredHours - leaveHours;
+            const utilisation      = adjustedWorked / adjustedRequired;
+            const utilisationBill  = adjustedBillable / adjustedRequired;
             return `
                 <tr>
-                    <th>#</th>
+                    <th>${index+1}</th>
                     <td>${userName}</td>
-                    <td>${(data.response.members[userName].billed_hours).toFixed(2)}</td>
-                    <td>${(data.response.members[userName].logged_hours).toFixed(2)}</td>
-                    <td>${(data.response.required_hours).toFixed(2)}</td>
-                    <td>${(data.response.members[userName].leave_logged).toFixed(2)}</td>
-                    <td>${(data.response.members[userName].logged_hours - data.response.members[userName].leave_logged).toFixed(2)}</td> <!-- adjusted worked -->
-                    <td>${(data.response.required_hours - data.response.members[userName].leave_logged).toFixed(2)}</td> <!-- adjusted required -->
-                    <td>${((data.response.members[userName].logged_hours - data.response.members[userName].leave_logged) / (data.response.required_hours - data.response.members[userName].leave_logged)).toFixed(2)}</td> <!-- utilisation -->
-                    <td>${((data.response.members[userName].billed_hours - data.response.members[userName].leave_billed) / (data.response.required_hours - data.response.members[userName].leave_logged)).toFixed(2)}</td> <!-- billable utilisation -->
-                    <td>${((data.response.members[userName].billed_hours) / (data.response.members[userName].logged_hours - data.response.members[userName].leave_logged)).toFixed(2)}</td> <!-- Billable:Worked -->
-                    <td>Target</td> <!-- Target -->
+                    <td>${billableHours.toFixed(2)}</td>
+                    <td>${workingHours.toFixed(2)}</td>
+                    <td>${requiredHours.toFixed(2)}</td>
+                    <td>${leaveHours.toFixed(2)}</td>
+                    <td>${adjustedWorked.toFixed(2)}</td> ${/* adjusted worked */''}
+                    <td>${adjustedRequired.toFixed(2)}</td> ${/* adjusted required */''}
+                    <td class="${utilisation<0.7?'table-danger':utilisation<1?'table-success':'table-warning'}">${utilisation.toFixed(2)}</td> ${/* utilisation */''}
+                    <td>${utilisationBill.toFixed(2)}</td> ${/* billable utilisation */''}
+                    <td>${(adjustedBillable / adjustedWorked).toFixed(2)}</td> ${/* Billable:Worked */''}
+                    <td>${getRoleTargetByName(userName)[1]}</td> ${/* Target */''}
                 </tr> 
             `
         }).join('')}
     `
+}
+
+function getRoleTargetByName(name){
+    const roleTarget = {
+        'David Mayo': ['Dev', 0.8, 'NZ'],
+        'Alex Li': ['Dev', 0.8, 'NZ'],
+        'Alex mayo': ['PM', 0.7, 'NZ'],
+        'Alexandra Mills': ['AM', 0.7, 'NZ'],
+        'Anni Luo': ['QA', 0.8, 'NZ'],
+        'Audrina Heng': ['Design', 0.8, 'NZ'],
+        'Barrick Hu': ['Dev', 0.8, 'NZ']
+    }
+
+    return roleTarget[name] ? roleTarget[name] : ['N/A','N/A','N/A']
 }
