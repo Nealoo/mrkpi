@@ -27,11 +27,11 @@ export default function(){
         var afterHour = document.querySelector("#kpi-form-afterHour").value;
         
         var afterHourExtra = document.querySelector("#kpi-form-afterHourExtra").value;
-        var leave = document.querySelector("#kpi-form-leave").value;
-        var totalBillable = document.querySelector("#kpi-form-totalBillable").value;
+        // var leave = document.querySelector("#kpi-form-leave").value;
+        // var totalBillable = document.querySelector("#kpi-form-totalBillable").value;
         var totalActualWorking = document.querySelector("#kpi-form-totalActualWorking").value;
         
-        var totalJiraWorking = document.querySelector("#kpi-form-totalJiraWorking").value;
+        // var totalJiraWorking = document.querySelector("#kpi-form-totalJiraWorking").value;
         var fullAttendanceDay = document.querySelector("#kpi-form-fullAttendanceDay").value;
         var logTimeDaily = document.querySelector("#kpi-form-logTimeDaily").value;
         var planTimeDaily = document.querySelector("#kpi-form-planTimeDaily").value;
@@ -54,11 +54,11 @@ export default function(){
             "afterHour": afterHour,
             
             "afterHourExtra": afterHourExtra,
-            "leave": leave,
-            "totalBillable": totalBillable,
+            // "leave": leave,
+            // "totalBillable": totalBillable,
             "totalActualWorking": totalActualWorking,
             
-            "totalJiraWorking": totalJiraWorking,
+            // "totalJiraWorking": totalJiraWorking,
             "fullAttendanceDay": fullAttendanceDay,
             "logTimeDaily": logTimeDaily,
             "planTimeDaily": planTimeDaily,
