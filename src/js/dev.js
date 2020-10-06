@@ -3,6 +3,8 @@ import JSONViewer from '../vendor/json-viewer.js'
 import '../vendor/json-viewer.css'
 import report from './report'
 
+import {baseUrl} from './utils/env';
+
 export default function(){
     report();
 
@@ -94,7 +96,7 @@ export default function(){
     
     document.querySelector('#kpi-form-get-points').addEventListener('click', function(){
         
-        var url = new URL('http://api.mrkpi.icu/getpoints/');
+        var url = new URL(`${baseUrl}getpoints/`);
 
         var params = getBasicInfo();
 
@@ -112,7 +114,7 @@ export default function(){
 
     document.querySelector('#kpi-week-calculate').addEventListener('click', function(){
         
-        var url = new URL('http://api.mrkpi.icu/calculatepoints/');
+        var url = new URL(`${baseUrl}calculatepoints/`);
 
         var params = getBasicInfo();
 
@@ -136,7 +138,7 @@ export default function(){
 
     document.querySelector('#kpi-form-set-hours').addEventListener('click', function(){
         
-        var url = new URL('http://api.mrkpi.icu/sethours/');
+        var url = new URL(`${baseUrl}sethours/`);
 
         var params = getHoursInfo();
 
@@ -158,9 +160,7 @@ export default function(){
 
     document.querySelector('#kpi-form-set-vote').addEventListener('click', function(){
         
-        var url = new URL('http://api.mrkpi.icu/setvote/');
-
-        // var url = new URL('http://localhost:5000/setvote/');
+        var url = new URL(`${baseUrl}setvote/`);
 
         var params = getVoteInfo();
 
