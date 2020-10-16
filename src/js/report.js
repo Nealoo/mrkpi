@@ -2,19 +2,28 @@ import Chart from 'chart.js';
 import $ from 'jquery';
 import {getBaseUserInfo} from './utils/tools'
 
+import {baseUrl} from './utils/env';
+
 export default function(){
 
     let ctx = document.getElementById('kpi-season-chart');
     let ctxRadar = document.getElementById('kpi-season-radar-chart');
 
-    $('#kpi-season-query').click(()=>{
+    $('#kpi-season-query3').click(()=>{
+        InitSeasonGraph('3');
+    });
 
+    $('#kpi-season-query4').click(()=>{
+        InitSeasonGraph('4');
+    });
+
+    function InitSeasonGraph(season){
         let userParams = getBaseUserInfo();
-        userParams.season = '3';
+        userParams.season = season;
 
         $.ajax({
-            url: 'http://api.mrkpi.icu/getseasonpoints/',
-            // url: 'http://localhost:5000/getseasonpoints/',
+            
+            url: `${baseUrl}getseasonpoints/`,
             method: 'POST',
             data: userParams
         }).done((res)=>{
@@ -23,15 +32,14 @@ export default function(){
             console.log(err);
             ctx.getContext("2d").fillText(JSON.stringify(err.responseText), 10, 50);
         });
-    });
+    }
 
     $('#kpi-week-query').click(()=>{
 
         let userParams = getBaseUserInfo();
-
+        
         $.ajax({
-            url: 'http://api.mrkpi.icu/getweekpoints/',
-            // url: 'http://localhost:5000/getweekpoints/',
+            url: `${baseUrl}getweekpoints/`,
             method: 'POST',
             data: userParams
         }).done((res)=>{
@@ -49,9 +57,6 @@ export default function(){
         }
 
         const seasonData = reportData.response.data;
-
-        delete seasonData['jonathan@moustacherepublic.com']
-        delete seasonData['barrick@moustacherepublic.com']
 
         let labelsArray = [];
         let normalHoursArray = [];
