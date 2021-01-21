@@ -9,6 +9,14 @@ export default function(){
     let ctx = document.getElementById('kpi-season-chart');
     let ctxRadar = document.getElementById('kpi-season-radar-chart');
 
+    $('#kpi-season-query1').click(()=>{
+        InitSeasonGraph('1');
+    });
+
+    $('#kpi-season-query2').click(()=>{
+        InitSeasonGraph('2');
+    });
+    
     $('#kpi-season-query3').click(()=>{
         InitSeasonGraph('3');
     });
@@ -101,6 +109,49 @@ export default function(){
 
         });
 
+        // final KPI hours start
+        // 1. get the clear array without negtive hours
+        // normalHoursArray = [30,-5,-6,30,-10] //testing only
+        let absIndexArray = [];
+        let absPointsArray = [];
+        let absNormalHoursArray = normalHoursArray.filter((nHour,index)=>{
+            if(nHour < 0){
+                absIndexArray.push(index);
+            }else{
+                absPointsArray.push(pointsArray[index]);
+            }
+            return nHour >= 0;
+        });
+
+        // 2. get the average of the hours and points
+        const average = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
+
+        let avgNormalHour = average(absNormalHoursArray);
+        let avgPoint = average(absPointsArray);
+        let pointsDifferenceRateArray = absPointsArray.map(point=>(point-avgPoint)/avgPoint);
+        let normalHoursAdjustmetArray = pointsDifferenceRateArray.map(rate=>rate*avgNormalHour)
+
+
+        // console.log(absIndexArray, pointsArray, absPointsArray, absNormalHoursArray)
+        // console.log('=====')
+        // console.log(avgNormalHour,avgPoint,pointsDifferenceRateArray,normalHoursAdjustmetArray)
+
+        absIndexArray.forEach(index=>{
+            normalHoursAdjustmetArray.splice(index,0,0);
+        })
+
+        // console.log(normalHoursAdjustmetArray)
+
+        let finalHoursArray = normalHoursArray.map((nHour,index)=>{
+            return nHour+normalHoursAdjustmetArray[index];
+        })
+
+        // console.log(finalHoursArray);
+
+        // let finalHoursArray = [50,60,70,80,90];
+
+        // final KPI hours end
+
         const seasonDataLen = Object.keys(seasonData).length - 2;
 
         let avgAttitude = sumAttitude/seasonDataLen;
@@ -137,10 +188,10 @@ export default function(){
         //     'avgPerformance', avgPerformance
         // )
 
-        initChart(labelsArray, normalHoursArray, extraHoursArray, pointsArray, radarArray, avgRadarArray);
+        initChart(labelsArray, normalHoursArray, extraHoursArray, pointsArray, finalHoursArray, radarArray, avgRadarArray);
     }
 
-    function initChart(labelsArray, normalHoursArray, extraHoursArray, pointsArray, radarArray, avgRadarArray){
+    function initChart(labelsArray, normalHoursArray, extraHoursArray, pointsArray, finalHoursArray, radarArray, avgRadarArray){
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -188,6 +239,14 @@ export default function(){
                 },{
                     label: 'KPI points',
                     data: pointsArray,
+                    type: 'line',
+                    // this dataset is drawn on top
+                    order: 2
+                },{
+                    label: 'final hours(100% weight in)',
+                    data: finalHoursArray,
+                    borderColor: 'rgba(54, 162, 235, 0.2)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     type: 'line',
                     // this dataset is drawn on top
                     order: 2
