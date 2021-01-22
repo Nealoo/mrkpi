@@ -8,6 +8,7 @@ export default function(mode){
 
     let ctx = document.getElementById('kpi-season-chart');
     let ctxRadar = document.getElementById('kpi-season-radar-chart');
+    let ctxChart, ctxRadarChart;
 
     $('#kpi-season-query1').click(()=>{
         InitSeasonGraph('1');
@@ -199,7 +200,7 @@ export default function(mode){
                     }).join('')}
                 `
             }
-            console.log(tlTableTemplate)
+            
             $('#tl_kpi_tbody').html(tlTableTemplate(seasonData));
         }
         
@@ -215,7 +216,8 @@ export default function(mode){
     }
 
     function initChart(labelsArray, normalHoursArray, extraHoursArray, pointsArray, finalHoursArray, radarArray, avgRadarArray){
-        var myChart = new Chart(ctx, {
+        ctxChart?.destroy();
+        ctxChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: labelsArray,
@@ -290,7 +292,8 @@ export default function(mode){
             return false;
         }
 
-        var myRadarChart = new Chart(ctxRadar, {
+        ctxRadarChart?.destroy();
+        ctxRadarChart = new Chart(ctxRadar, {
             type: 'radar',
             data: {
                 labels: ['Attitude', 'Extra', 'Goal', 'Performance(inc.Sharing/Helping)', 'Sharing', 'Helping'],
