@@ -4,7 +4,7 @@ import {getBaseUserInfo} from './utils/tools'
 
 import {baseUrl} from './utils/env';
 
-export default function(){
+export default function(mode){
 
     let ctx = document.getElementById('kpi-season-chart');
     let ctxRadar = document.getElementById('kpi-season-radar-chart');
@@ -152,34 +152,57 @@ export default function(){
 
         // final KPI hours end
 
-        const seasonDataLen = Object.keys(seasonData).length - 2;
+        if(mode != 'tl'){
+            const seasonDataLen = Object.keys(seasonData).length - 2;
 
-        let avgAttitude = sumAttitude/seasonDataLen;
-        let avgExtra = sumExtra/seasonDataLen;
-        let avgGoal = sumGoal/seasonDataLen;
-        let avgPerformance = sumPerformance/seasonDataLen;
-        let avgSharing = sumSharing/seasonDataLen;
-        let avgHelping = sumHelping/seasonDataLen;
+            let avgAttitude = sumAttitude/seasonDataLen;
+            let avgExtra = sumExtra/seasonDataLen;
+            let avgGoal = sumGoal/seasonDataLen;
+            let avgPerformance = sumPerformance/seasonDataLen;
+            let avgSharing = sumSharing/seasonDataLen;
+            let avgHelping = sumHelping/seasonDataLen;
 
-        let userParams = getBaseUserInfo();
-        let currentUserData = seasonData[userParams.email];
-        radarArray.push(
-            currentUserData.totalAttitude/maxAttitude,
-            currentUserData.totalExtra/maxExtra,
-            currentUserData.totalGoal/maxGoal,
-            currentUserData.totalPerformance/maxPerformance,
-            currentUserData.totalSharing/maxSharing,
-            currentUserData.totalHelping/maxHelping
-        )
+            let userParams = getBaseUserInfo();
+            let currentUserData = seasonData[userParams.email];
+            radarArray.push(
+                currentUserData.totalAttitude/maxAttitude,
+                currentUserData.totalExtra/maxExtra,
+                currentUserData.totalGoal/maxGoal,
+                currentUserData.totalPerformance/maxPerformance,
+                currentUserData.totalSharing/maxSharing,
+                currentUserData.totalHelping/maxHelping
+            )
 
-        avgRadarArray.push(
-            avgAttitude/maxAttitude,
-            avgExtra/maxExtra,
-            avgGoal/maxGoal,
-            avgPerformance/maxPerformance,
-            avgSharing/maxSharing,
-            avgHelping/maxHelping
-        );
+            avgRadarArray.push(
+                avgAttitude/maxAttitude,
+                avgExtra/maxExtra,
+                avgGoal/maxGoal,
+                avgPerformance/maxPerformance,
+                avgSharing/maxSharing,
+                avgHelping/maxHelping
+            );
+        }
+
+        // show the tl infomation table
+        if(mode == 'tl'){
+            const tlTableTemplate = kpiData => {
+                return `
+                    ${Object.keys(kpiData).map((userEmail, index)=>{
+                        return `
+                            <tr>
+                                <td>${userEmail.replace('@moustacherepublic.com','')}</td>
+                                <td>${kpiData[userEmail]?.hours?.totalJiraWorking}</td>
+                                <td>${kpiData[userEmail]?.hours?.totalBillable}</td>
+                                <td>${kpiData[userEmail]?.totalPoints}</td>
+                            </tr> 
+                        `
+                    }).join('')}
+                `
+            }
+            console.log(tlTableTemplate)
+            $('#tl_kpi_tbody').html(tlTableTemplate(seasonData));
+        }
+        
 
         // console.log(
         //     'avgAttitude', avgAttitude,
@@ -262,6 +285,10 @@ export default function(){
                 }
             }
         });
+
+        if(mode == 'tl'){
+            return false;
+        }
 
         var myRadarChart = new Chart(ctxRadar, {
             type: 'radar',
