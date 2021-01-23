@@ -1,15 +1,22 @@
+import {getUserInfoFromLocal} from '../auth';
+
 export function getBaseUserInfo(){
-    let kpiEmail = document.querySelector("#kpi-form-email").value;
-    let kpiKey = document.querySelector("#kpi-form-key").value;
-    let kpiYear = document.querySelector("#kpi-form-year").value;
-    let kpiWeek = document.querySelector("#kpi-form-week").value;
-    
-    return {
-        "email": kpiEmail,
-        "key": kpiKey,
-        "year": kpiYear,
-        "week": kpiWeek
-    }
+    let userInfo = getUserInfoFromLocal()
+        let kpiEmail = userInfo.userName;
+        let kpiKey = userInfo.password;
+        let kpiYear = document.querySelector("#kpi-form-year").value;
+        let kpiWeek = document.querySelector("#kpi-form-week").value;
+
+        // always save the latest year and week info
+        localStorage.setItem('mrkpiYear', kpiYear)
+        localStorage.setItem('mrkpiWeek', kpiWeek)
+        
+        return {
+            "email": kpiEmail,
+            "key": kpiKey,
+            "year": kpiYear,
+            "week": kpiWeek
+        }
 }
 
 export function getBaseUtilisationInfo(){

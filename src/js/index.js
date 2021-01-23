@@ -1,12 +1,12 @@
-import dev from './dev'
+import auth from './auth'
 import tl from './tl'
 import utilisation from './utilisation'
 
 
 window.mrkpi_main_function = function (pageType){
 	switch (pageType) {
-		case 'dev':
-			dev();
+		case 'main':
+			auth();
 			break;
 		case 'tl':
 			tl();

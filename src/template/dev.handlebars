@@ -1,0 +1,206 @@
+<div class="row">
+    <div id="kpi-response-area" class="col-12 col-md-6 order-md-2 sticky-top vh-100 overflow-auto">
+        <textarea style="display:none; width: 100%; min-height: 100px;"></textarea>
+        <div style="display:none">
+            <button type="button" class="load-json">Load JSON</button>
+            <button type="button" class="collapse">Collapse to level 1</button>
+            <button type="button" class="maxlvl">Show JSON to level 1</button>
+        </div>
+        <h2>KPI API response:</h2>
+        <div id="json">
+            <p>
+                Please allow up to 20 second after you click on the button to wake the Heroku app.<br>
+                <b>Loading button</b> will be coming before 2022 S4.
+            </p>
+            <p>
+                API response will be displayed here directly.<br>
+                Data handling will be implemented before 2060.
+            </p>
+            
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 order-md-1">
+        
+        <div id="kpi-form">
+
+            <div id="kpi-year-week-box" class="sticky-top row" style="background-color: white;">
+                
+                <div class="col-12">
+                    <h3>current week number: <b id="kpi-current-week-number"></b></h3>
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="kpi-form-year">Year</label>
+                    <input type="text" class="form-control" id="kpi-form-year">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="kpi-form-week">Week</label>
+                    <input type="text" class="form-control" id="kpi-form-week">
+                </div>
+            </div>
+            
+            <button type="button" id="kpi-form-get-points" class="btn btn-primary">get points</button>
+            <button type="button" id="kpi-logout" class="btn btn-primary">Log out</button>
+            <hr/>
+
+            <!-- <div class="form-group">
+                <label for="kpi-form-clientBillable">clientBillable</label>
+                <input type="text" class="form-control" id="kpi-form-clientBillable">
+            </div> -->
+
+            <!-- <div class="form-group">
+                <label for="kpi-form-companyPayProject">companyPayProject</label>
+                <input type="text" class="form-control" id="kpi-form-companyPayProject">
+            </div> -->
+
+            <!-- <div class="form-group">
+                <label for="kpi-form-companyPayExtra">companyPayExtra</label>
+                <input type="text" class="form-control" id="kpi-form-companyPayExtra">
+            </div> -->
+
+            <div class="form-group">
+                <label for="kpi-form-afterHour">afterHour</label>
+                <input type="text" class="form-control" id="kpi-form-afterHour">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-afterHourExtra">afterHourExtra</label>
+                <input type="text" class="form-control" id="kpi-form-afterHourExtra">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="kpi-form-leave">leave</label>
+                <input type="text" class="form-control" id="kpi-form-leave">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-totalBillable">totalBillable</label>
+                <input type="text" class="form-control" id="kpi-form-totalBillable">
+                <small class="form-text text-muted">This is all your billable hours for this week, so please include your extra hours, 1.5 hours and leave hours in. Also please make sure the number here is same with the billable number in Jira.</small>
+            </div> -->
+
+            <div class="form-group">
+                <label for="kpi-form-totalActualWorking">totalActualWorking</label>
+                <input type="text" class="form-control" id="kpi-form-totalActualWorking">
+                <small class="form-text text-muted">Please put your real working houers here, it can be different with the Jira hours.</small>
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
+                <input type="text" class="form-control" id="kpi-form-totalJiraWorking">
+            </div> -->
+
+            <div class="form-group">
+                <label for="kpi-form-fullAttendanceDay">fullAttendanceDay</label>
+                <input type="text" class="form-control" id="kpi-form-fullAttendanceDay">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="kpi-form-logTimeDaily">logTimeDaily(1 or 0)</label>
+                <input type="text" class="form-control" id="kpi-form-logTimeDaily">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-planTimeDaily">planTimeDaily(0.5 or 0)</label>
+                <input type="text" class="form-control" id="kpi-form-planTimeDaily">
+            </div> -->
+
+            <div class="form-group">
+                <label for="kpi-form-writeShareDoc">writeShareDoc(0.5 or 0)</label>
+                <input type="text" class="form-control" id="kpi-form-writeShareDoc">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-demoTopic">demoTopic</label>
+                <input type="text" class="form-control" id="kpi-form-demoTopic">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-sharingTopic">sharingTopic</label>
+                <input type="text" class="form-control" id="kpi-form-sharingTopic">
+            </div>
+
+
+            <button type="button" id="kpi-form-set-hours" class="btn btn-primary">set hours</button>
+            <hr/>
+
+            <select id="kpi-form-voteType" class="form-control">
+                <option value="">voteType...</option>
+                <option value="shareVoteRecord">shareVoteRecord</option>
+                <option value="helpVoteRecord">helpVoteRecord</option>
+            </select>
+            <div class="form-check my-4">
+                <input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-true" value="True" checked>
+                <label class="form-check-label" for="kpi-form-skipvote-true">
+                    Skip vote
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-false" value="False" checked>
+                <label class="form-check-label" for="kpi-form-skipvote-false">
+                    Not skip vote
+                </label>
+            </div>
+            <div class="email-container my-4">
+                <div class="email-dropdown-container">
+                    <select class="email-dropdown form-control">
+                        <option disabled="true" selected="true">Select an email</option>
+                        {{#eq team 'neal'}}
+                        <option value="davidmayo@moustacherepublic.com">davidmayo@moustacherepublic.com</option>
+                        <option value="richard@moustacherepublic.com">richard@moustacherepublic.com</option>
+                        <option value="jason@moustacherepublic.com">jason@moustacherepublic.com</option>
+                        <option value="kai@moustacherepublic.com">kai@moustacherepublic.com</option>
+                        <option value="williamt@moustacherepublic.com">williamt@moustacherepublic.com</option>
+                        <option value="caleb@moustacherepublic.com">caleb@moustacherepublic.com</option>
+                        {{else eq team 'david'}}
+                        <option value="barrick@moustacherepublic.com">barrick@moustacherepublic.com</option>
+                        <option value="jonathan@moustacherepublic.com">jonathan@moustacherepublic.com</option>
+                        <option value="nancie@moustacherepublic.com">nancie@moustacherepublic.com</option>
+                        <option value="michael@moustacherepublic.com">michael@moustacherepublic.com</option>
+                        <option value="theresia@moustacherepublic.com">theresia@moustacherepublic.com</option>
+                        <option value="jamie@moustacherepublic.com">jamie@moustacherepublic.com</option>
+                        <option value="jonathanzhou@moustacherepublic.com">jonathanzhou@moustacherepublic.com</option>
+                        <option value="anni@moustacherepublic.com">anni@moustacherepublic.com</option>
+                        {{/eq}}
+                    </select>
+                </div>
+                <div class="email-result-container my-4"></div>
+                <div class="form-group">
+                    <label for="kpi-form-voteFor">voteFor</label>
+                    <textarea type="text" class="form-control email-result-input" id="kpi-form-voteFor" style="height: 100px;"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="kpi-form-votePoint">votePoint</label>
+                <input type="text" class="form-control" id="kpi-form-votePoint">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-voteReason">voteReason</label>
+                <input type="text" class="form-control" id="kpi-form-voteReason">
+            </div>
+
+            <button type="button" id="kpi-form-clear-vote" class="btn btn-primary">clear</button>
+            <button type="button" id="kpi-form-set-vote" class="btn btn-primary">set votes</button>
+            <hr/>
+            
+        </div>
+    </div>
+</div>
+
+<div>
+    <button id="kpi-season-query1" class="btn btn-primary">query season 1</button>
+    <button id="kpi-season-query2" class="btn btn-primary">query season 2</button>
+    <button id="kpi-season-query3" class="btn btn-primary">query season 3</button>
+    <button id="kpi-season-query4" class="btn btn-primary">query season 4</button>
+    <button id="kpi-week-query" class="btn btn-primary">tell me about this week</button>
+    <hr />
+    <h3>Team Bar Chart</h3>
+    <canvas id="kpi-season-chart" width="400" height="400"></canvas>
+    <hr />
+    <h3>Personal Radar Chart</h3>
+    <canvas id="kpi-season-radar-chart" width="400" height="400"></canvas>
+    <hr />
+</div>
