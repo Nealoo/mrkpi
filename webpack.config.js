@@ -16,15 +16,24 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"],
-                        plugins: [
-                            '@babel/plugin-proposal-optional-chaining'
-                        ]
+                use: [
+                    {
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["@babel/preset-env"],
+                            plugins: [
+                                '@babel/plugin-proposal-optional-chaining'
+                            ]
+                        }
                     }
-                }
+                ]
+            },
+            {
+                test: /\.js$/,
+                include: /(node_modules)/,
+                use: [
+                    'unlazy-loader'
+                ]
             },
             {
                 test: /\.s[ac]ss$/i,
@@ -50,7 +59,7 @@ module.exports = {
                 test: /\.handlebars$/,
                 loader: 'handlebars-loader',
                 options: {
-                    runtime: path.resolve(__dirname, 'src/js/handlebars-helpers.js'),
+                    runtime: path.resolve(__dirname, 'src/js/helpers/handlebars-helpers.js'),
                     precompileOptions: {
                         knownHelpersOnly: false,
                     },
@@ -73,9 +82,14 @@ module.exports = {
             chunkFilename: '[id].css',
           }),
     ],
+    // to make handlebars fully working,
+    // add unlazy-loader to the node module is the first thing
+    // the 3 alias of the resolve are all necessary
+    // need to have that runtime js file
+    // the secret is to go to node_modules/logging-helpers/package.json.
     resolve: {
         alias: {
-            handlebars: path.resolve(__dirname, 'node_modules/handlebars'),
+            handlebars: path.resolve(__dirname, 'node_modules/handlebars/dist/handlebars.min.js'),
             'fs': path.resolve(__dirname, 'node_modules/file-system/file-system.js'),
             'readline': path.resolve(__dirname, 'node_modules/log-utils/index.js'),
         },
