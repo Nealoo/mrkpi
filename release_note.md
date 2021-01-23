@@ -6,9 +6,10 @@ WIP:
 3. tl page show the full attendence day
 4. TL login as a developer.
 5. A button for set check for data completion.
-6. Query for all data for  a season in a table view
+6. copy all changes(mobile fix, year/week floating, team check) to tl page.
+7. Query for all data for  a season in a table view
     1. Filters for the table view.
-7. xx
+8. xx
     1. xx
 
 In consideration
