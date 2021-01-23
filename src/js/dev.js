@@ -259,34 +259,7 @@ export default function(){
     });
     
     // vote select code start
-    const emailResults = [];
-
-    // const emailDropdownContainer = document.getElementsByClassName('email-dropdown-container')[0];
-    // const emailNames = [
-    //     'davidmayo',
-    //     'jamesprime',
-    //     'richard',
-    //     'jason',
-    //     'kai',
-    //     'john',
-    //     'barrick',
-    //     'jonathan'
-    // ]
-    // const emailDropdown = document.createElement('select');
-    // emailDropdown.classList.add('email-dropdown');
-    // const placeholderOption = document.createElement('option');
-    // placeholderOption.setAttribute('disabled', true);
-    // placeholderOption.setAttribute('selected', true);
-    // placeholderOption.innerHTML = 'Select an email';
-    //     emailDropdown.appendChild(placeholderOption);
-    // emailNames.forEach(email => {
-    //     email += '@moustacherepublic.com';
-    //     const emailOption = document.createElement('option');
-    //     emailOption.setAttribute('value', email);
-    //     emailOption.innerHTML = email;
-    //     emailDropdown.appendChild(emailOption);
-    // });
-    // emailDropdownContainer.appendChild(emailDropdown);
+    let emailResults = [];
 
     const emailDropdown = document.getElementsByClassName('email-dropdown')[0];
 
@@ -322,14 +295,17 @@ export default function(){
         updateEmailInput();
     }
 
-    emailResults.forEach(email => {
-        addEmailResult(email);
-    });
-
     const updateEmailInput = () => {
-        const emailInput = document.getElementsByClassName('email-result-input')[0];
-        emailInput.value = emailResults.join(', ');
+        document.querySelector('#kpi-form-voteFor').value = emailResults.join(', ');
     }
+
+    const voteClearBtn = document.querySelector('#kpi-form-clear-vote');
+
+    voteClearBtn.addEventListener('click', () => {
+        emailResultContainer.innerHTML = '';
+        emailResults = [];
+        updateEmailInput();
+    });
 
     // vote select code end
 }
