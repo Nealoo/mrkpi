@@ -1,24 +1,30 @@
 Bug reports and feature requests are welcome
 
 WIP:
-1. Set default for the actual working.
-2. TL page, add button for get jira hours and generate report.
-3. tl page show the full attendence day
-4. TL login as a developer.
-5. A button for set check for data completion.
-6. copy all changes(mobile fix, year/week floating, team check) to tl page.
-7. Query for all data for  a season in a table view
-    1. Filters for the table view.
-8. xx
-    1. xx
+1. copy all changes(mobile fix, year/week floating, team check) to tl page.
+2. add tooptip for each fields.
+3. UI, TL page, add button for get jira hours and generate report.
+4. UI, tl page show the full attendence day in report.
+5. Integration, set 'complete status' for week data.
+6. UI, add table to show weeks' 'complete status'.
+7. UI, TL page, show all radar charts.
+8. Integration, redo the radar chart metrics.
 
-In consideration
-1. change password feature.
-2. Slack integration.
+under consideration
+1. A button for set check for data completion.
+2. change password feature.
+3. Slack integration.
+4. UI, show the week query on the button.
+5. UI, TL login as a developer.
+6.  Query for all data for  a season in a table view
+    1. Filters for the table view.
+7. UI, show button for previous/next week query.
+8. after hour 1.5 apply/approve.
 
 KPI app release note - 20210124
 
 1. Integration, fixed the tl get permission issue.
+2. Integration, Set default for the actual working.
 
 KPI app release note - 20210123
 1. UI, added support to show the final KPI hours after points (100% points weight in)
