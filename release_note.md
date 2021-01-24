@@ -2,13 +2,15 @@ Bug reports and feature requests are welcome
 
 WIP:
 1. copy all changes(mobile fix, year/week floating, team check) to tl page.
-2. add tooptip for each fields.
-3. UI, TL page, add button for get jira hours and generate report.
-4. UI, tl page show the full attendence day in report.
-5. Integration, set 'complete status' for week data.
-6. UI, add table to show weeks' 'complete status'.
-7. UI, TL page, show all radar charts.
-8. Integration, redo the radar chart metrics.
+2. UI, add tooptip for each fields.
+3. UI, add button to show hide the API response panel.
+4. UI, update the layout to show two input box each line for numbers.
+5. UI, TL page, add button for get jira hours and generate report.
+6. UI, tl page show the full attendence day in report.
+7. Integration, set 'complete status' for week data.
+8. UI, add table to show weeks' 'complete status'.
+9. UI, TL page, show all radar charts.
+10. Integration, redo the radar chart metrics.
 
 under consideration
 1. A button for set check for data completion.

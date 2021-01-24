@@ -3,7 +3,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
         "js/bundle" : "./src/js/index.js"
     },
