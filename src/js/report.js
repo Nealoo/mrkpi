@@ -184,6 +184,36 @@ export default function(mode){
             );
         }
 
+        // <th scope="col">Name</th>
+        // <th scope="col">Working</th>
+        // <th scope="col">Billable</th>
+        // <th scope="col">points</th>
+        // <th scope="col">fullAttendancePoints</th>
+        // <th scope="col">logTimeDaily</th>
+        // <th scope="col">planTimeDaily</th>
+        // <th scope="col">writeShareDoc</th>
+        // <th scope="col">fullAttendanceDay</th>
+        // <th scope="col">fullWeekDay</th>
+        // <th scope="col">extraKPIHours</th>
+        // <th scope="col">leave</th>
+        // <th scope="col">normalKPIHours</th>
+        // <th scope="col">totalActualWorking</th>
+        // <th scope="col">helpVotePoints</th>
+        // <th scope="col">helpingWinner</th>
+        // <th scope="col">mostBillable</th>
+        // <th scope="col">mostWorking</th>
+        // <th scope="col">shareVotePoints</th>
+        // <th scope="col">sharingWinner</th>
+        // <th scope="col">sharingTopic</th>
+        // <th scope="col">totalAttitude</th>
+        // <th scope="col">totalExtra</th>
+        // <th scope="col">totalExtraKPIHours</th>
+        // <th scope="col">totalGoal</th>
+        // <th scope="col">totalHelping</th>
+        // <th scope="col">totalNormalKPIHours</th>
+        // <th scope="col">totalPerformance</th>
+        // <th scope="col">totalSharing</th>
+
         // show the tl infomation table
         if(mode == 'tl'){
             const tlTableTemplate = kpiData => {
@@ -195,12 +225,37 @@ export default function(mode){
                                 <td>${kpiData[userEmail]?.hours?.totalJiraWorking}</td>
                                 <td>${kpiData[userEmail]?.hours?.totalBillable}</td>
                                 <td>${kpiData[userEmail]?.totalPoints}</td>
+                                <td>${kpiData[userEmail]?.attitude.fullAttendancePoints}</td>
+                                <td>${kpiData[userEmail]?.attitude.logTimeDaily}</td>
+                                <td>${kpiData[userEmail]?.attitude.planTimeDaily}</td>
+                                <td>${kpiData[userEmail]?.attitude.writeShareDoc}</td>
+                                <td>${kpiData[userEmail]?.fullAttendanceDay}</td>
+                                <td>${kpiData[userEmail]?.fullWeekDay}</td>
+                                <td>${kpiData[userEmail]?.hours.extraKPIHours}</td>
+                                <td>${kpiData[userEmail]?.hours.leave}</td>
+                                <td>${kpiData[userEmail]?.hours.normalKPIHours}</td>
+                                <td>${kpiData[userEmail]?.hours.totalActualWorking}</td>
+                                <td>${kpiData[userEmail]?.performance.helpVotePoints}</td>
+                                <td>${kpiData[userEmail]?.performance.helpingWinner}</td>
+                                <td>${kpiData[userEmail]?.performance.mostBillable}</td>
+                                <td>${kpiData[userEmail]?.performance.mostWorking}</td>
+                                <td>${kpiData[userEmail]?.performance.shareVotePoints}</td>
+                                <td>${kpiData[userEmail]?.performance.sharingWinner}</td>
+                                <td>${kpiData[userEmail]?.sharingTopic}</td>
+                                <td>${kpiData[userEmail]?.totalAttitude}</td>
+                                <td>${kpiData[userEmail]?.totalExtra}</td>
+                                <td>${kpiData[userEmail]?.totalExtraKPIHours}</td>
+                                <td>${kpiData[userEmail]?.totalGoal}</td>
+                                <td>${kpiData[userEmail]?.totalHelping}</td>
+                                <td>${kpiData[userEmail]?.totalNormalKPIHours}</td>
+                                <td>${kpiData[userEmail]?.totalPerformance}</td>
+                                <td>${kpiData[userEmail]?.totalSharing}</td>
                             </tr> 
                         `
                     }).join('')}
                 `
             }
-            
+
             $('#tl_kpi_tbody').html(tlTableTemplate(seasonData));
         }
         
