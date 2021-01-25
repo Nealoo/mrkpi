@@ -225,22 +225,22 @@ export default function(mode){
                                 <td>${kpiData[userEmail]?.hours?.totalJiraWorking}</td>
                                 <td>${kpiData[userEmail]?.hours?.totalBillable}</td>
                                 <td>${kpiData[userEmail]?.totalPoints}</td>
-                                <td>${kpiData[userEmail]?.attitude.fullAttendancePoints}</td>
-                                <td>${kpiData[userEmail]?.attitude.logTimeDaily}</td>
-                                <td>${kpiData[userEmail]?.attitude.planTimeDaily}</td>
-                                <td>${kpiData[userEmail]?.attitude.writeShareDoc}</td>
+                                <td>${kpiData[userEmail]?.attitude?.fullAttendancePoints}</td>
+                                <td>${kpiData[userEmail]?.attitude?.logTimeDaily}</td>
+                                <td>${kpiData[userEmail]?.attitude?.planTimeDaily}</td>
+                                <td>${kpiData[userEmail]?.attitude?.writeShareDoc}</td>
                                 <td>${kpiData[userEmail]?.fullAttendanceDay}</td>
                                 <td>${kpiData[userEmail]?.fullWeekDay}</td>
-                                <td>${kpiData[userEmail]?.hours.extraKPIHours}</td>
-                                <td>${kpiData[userEmail]?.hours.leave}</td>
-                                <td>${kpiData[userEmail]?.hours.normalKPIHours}</td>
-                                <td>${kpiData[userEmail]?.hours.totalActualWorking}</td>
-                                <td>${kpiData[userEmail]?.performance.helpVotePoints}</td>
-                                <td>${kpiData[userEmail]?.performance.helpingWinner}</td>
-                                <td>${kpiData[userEmail]?.performance.mostBillable}</td>
-                                <td>${kpiData[userEmail]?.performance.mostWorking}</td>
-                                <td>${kpiData[userEmail]?.performance.shareVotePoints}</td>
-                                <td>${kpiData[userEmail]?.performance.sharingWinner}</td>
+                                <td>${kpiData[userEmail]?.hours?.extraKPIHours}</td>
+                                <td>${kpiData[userEmail]?.hours?.leave}</td>
+                                <td>${kpiData[userEmail]?.hours?.normalKPIHours}</td>
+                                <td>${kpiData[userEmail]?.hours?.totalActualWorking}</td>
+                                <td>${kpiData[userEmail]?.performance?.helpVotePoints}</td>
+                                <td>${kpiData[userEmail]?.performance?.helpingWinner}</td>
+                                <td>${kpiData[userEmail]?.performance?.mostBillable}</td>
+                                <td>${kpiData[userEmail]?.performance?.mostWorking}</td>
+                                <td>${kpiData[userEmail]?.performance?.shareVotePoints}</td>
+                                <td>${kpiData[userEmail]?.performance?.sharingWinner}</td>
                                 <td>${kpiData[userEmail]?.sharingTopic}</td>
                                 <td>${kpiData[userEmail]?.totalAttitude}</td>
                                 <td>${kpiData[userEmail]?.totalExtra}</td>

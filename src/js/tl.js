@@ -4,6 +4,8 @@ import '../vendor/json-viewer.css'
 import report from './report'
 
 import {baseUrl} from './utils/env';
+import {logoutAction} from './auth';
+import {getBaseUserInfo} from './utils/tools'
 
 export default function(){
     report('tl');
@@ -22,21 +24,14 @@ export default function(){
         return weekNo;//[d.getUTCFullYear(), weekNo];
     }
 
+    if(window.innerWidth < 768){
+        document.querySelector('#kpi-response-area').classList.remove('sticky-top','vh-100');
+    }
+
     document.querySelector('#kpi-current-week-number').innerHTML = getWeekNumber(new Date());
 
-    function getBasicInfo(){
-        var kpiEmail = document.querySelector("#kpi-form-email").value;
-        var kpiKey = document.querySelector("#kpi-form-key").value;
-        var kpiYear = document.querySelector("#kpi-form-year").value;
-        var kpiWeek = document.querySelector("#kpi-form-week").value;
-        
-        return {
-            "email": kpiEmail,
-            "key": kpiKey,
-            "year": kpiYear,
-            "week": kpiWeek
-        }
-    }
+    document.querySelector("#kpi-form-year").value = localStorage.getItem('mrkpiYear');
+    document.querySelector("#kpi-form-week").value = localStorage.getItem('mrkpiWeek');
     
     function getHoursInfo(){
         var voteType = document.querySelector("#kpi-form-voteType").value;
@@ -61,7 +56,7 @@ export default function(){
         var totalJiraWorking = document.querySelector("#kpi-form-totalJiraWorking").value;
         var leave = document.querySelector("#kpi-form-leave").value;
 
-        var baseInfo = getBasicInfo();
+        var baseInfo = getBaseUserInfo();
         
         return {
             "email": baseInfo.email,
@@ -100,7 +95,7 @@ export default function(){
         var userVoteReason = document.querySelector("#kpi-form-voteReason").value;
         var skipVote = document.querySelector("input[name=kpi-form-skipvote]:checked").value;
         
-        var baseInfo = getBasicInfo();
+        var baseInfo = getBaseUserInfo();
         
         return {
             "email": baseInfo.email,
@@ -120,7 +115,7 @@ export default function(){
         
         var url = new URL(`${baseUrl}techleadsetting/`);
 
-        var params = getBasicInfo();
+        var params = getBaseUserInfo();
         params.getFor = document.querySelector("#tl-selected-user").value;
 
         fetch(url, {
@@ -143,7 +138,7 @@ export default function(){
         
         var url = new URL(`${baseUrl}calculatepoints/`);
 
-        var params = getBasicInfo();
+        var params = getBaseUserInfo();
 
         url.search = new URLSearchParams(params).toString();
 
@@ -209,27 +204,10 @@ export default function(){
         
     }, false);
 
-    document.querySelector('#kpi-form-store-local').addEventListener('click', function(){
-        var value = getBasicInfo();
-        localStorage.setItem('mrkpiName', value.email)
-        localStorage.setItem('mrkpiKey', value.key)
-        localStorage.setItem('mrkpiYear', value.year)
-        localStorage.setItem('mrkpiWeek', value.week)
+    document.querySelector('#kpi-logout').addEventListener('click', function(){
+        alert(`logged out, and your key: ${localStorage.getItem('mrkpiKey')}`)
+        logoutAction();
     });
-
-    document.querySelector('#kpi-form-clear-local').addEventListener('click', function(){
-        localStorage.removeItem('mrkpiName');
-        localStorage.removeItem('mrkpiKey');
-        localStorage.removeItem('mrkpiYear');
-        localStorage.removeItem('mrkpiWeek');
-    });
-
-    document.querySelector("#kpi-form-email").value = localStorage.getItem('mrkpiName');
-    document.querySelector("#kpi-form-key").value = localStorage.getItem('mrkpiKey');
-    document.querySelector("#kpi-form-year").value = localStorage.getItem('mrkpiYear');
-    document.querySelector("#kpi-form-week").value = localStorage.getItem('mrkpiWeek');
-    
-    
 
     var jsonObj = {};
     var jsonViewer = new JSONViewer();
