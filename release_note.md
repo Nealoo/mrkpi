@@ -14,13 +14,13 @@ WIP:
     
 
 TL page changes
-1. copy all changes(mobile fix, year/week floating, team check) to tl page.
-4. UI, TL page, add button for get jira hours and generate report.
-5. Integration, add more details about the points to the report.
-6. UI, show all fields and add filters to show/hide the columns in the table.
-7. 2. tl page, set points slipt to different tabs, based on the metrics.
+1. Bug Fix, TL page calculate button add default team.
+2. TL page, user dropdown based on team.
+3. UI, TL page, add button for get jira hours and generate report.
+4. UI, show all fields and add filters to show/hide the columns in the table.
+5. 2. tl page, set points slipt to different tabs, based on the metrics.
    1. each tab got its own set button to only submit content under the current tab.
-8. UI, TL page, show all radar charts.
+6. UI, TL page, show all radar charts.
 
 App init for the Manila team
 1. set up accounts for them.
@@ -47,6 +47,7 @@ under consideration
 KPI app release note - 20210125
 1. UI, tl page show the full attendence day, full week day in report.
 2. Integration, added more details to the weekly report.
+3. UI, updated the TL page to have the latest changes.
 
 KPI app release note - 20210124
 
