@@ -25,7 +25,8 @@ TL page changes
 
 App init for the Manila team
 1. set up accounts for them.
-2. update the holiday management rule. add a holiday schema attribute to all users.
+2. add attribute 'location' to the user profile.
+3. update the holiday management rule. add a holiday schema attribute to all users.
 
 under consideration
 1. CI, set up CI for deployment, only bundle production resources for public.
@@ -49,6 +50,12 @@ KPI app release note - 20210126
 2. UI, dev page show season data table view.
 3. Integration, new API to support the season data table view.
 4. Bug Fix, TL page calculate button add default team.
+5. Integration, requires permission for the tl get method.
+6. Integration, TL API, set default team.
+7. Integration, tl api, add validation, return object for the season calculate.
+8. UI, add 'fetch jira data' and 'season calculate' button.
+9. UI, add season input box.
+10. UI, TL page, show select options based on TL team.
 
 KPI app release note - 20210125
 1. UI, tl page show the full attendence day, full week day in report.

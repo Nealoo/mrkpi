@@ -49,42 +49,34 @@
 								<h3>current week number: <b id="kpi-current-week-number"></b></h3>
 							</div>
 			
-							<div class="form-group col-6">
+							<div class="form-group col-4">
 								<label for="kpi-form-year">Year</label>
 								<input type="text" class="form-control" id="kpi-form-year">
 							</div>
 			
-							<div class="form-group col-6">
+							<div class="form-group col-4">
 								<label for="kpi-form-week">Week</label>
 								<input type="text" class="form-control" id="kpi-form-week">
 							</div>
 
+							<div class="form-group col-4">
+								<label for="kpi-form-week">Season</label>
+								<input type="text" class="form-control" id="kpi-form-season">
+							</div>
+
 							<div class="form-group col-12">
 								<select class="form-control" id="tl-selected-user">
-									<option disabled="true" selected="true">Select an email</option>
-									<option value="davidmayo@moustacherepublic.com">davidmayo@moustacherepublic.com</option>
-									<option value="richard@moustacherepublic.com">richard@moustacherepublic.com</option>
-									<option value="jason@moustacherepublic.com">jason@moustacherepublic.com</option>
-									<option value="kai@moustacherepublic.com">kai@moustacherepublic.com</option>
-									<option value="williamt@moustacherepublic.com">john@moustacherepublic.com</option>
-									<option value="caleb@moustacherepublic.com">john@moustacherepublic.com</option>
-									<option value="barrick@moustacherepublic.com">barrick@moustacherepublic.com</option>
-									<option value="jonathan@moustacherepublic.com">jonathan@moustacherepublic.com</option>
-									<option value="nancie@moustacherepublic.com">nancie@moustacherepublic.com</option>
-									<option value="anni@moustacherepublic.com">anni@moustacherepublic.com</option>
-									<option value="theresia@moustacherepublic.com">theresia@moustacherepublic.com</option>
-									<option value="jamie@moustacherepublic.com">jamie@moustacherepublic.com</option>
-									<option value="michael@moustacherepublic.com">michael@moustacherepublic.com</option>
-									<option value="jonathanzhou@moustacherepublic.com">jonathanzhou@moustacherepublic.com</option>
 								</select>
 							</div>
 						</div>
 						
 						<hr/>
 						
-						<button type="button" id="kpi-form-get-points" class="btn btn-primary">get points</button>
-						<button type="button" id="kpi-logout" class="btn btn-primary">Log out</button>
-						<button type="button" id="kpi-week-calculate" class="btn btn-primary">week calculate</button>
+						<button type="button" id="kpi-form-get-points" class="mt-2 btn btn-primary">get week points</button>
+						<button type="button" id="kpi-logout" class="mt-2 btn btn-primary">Log out</button>
+						<button type="button" id="kpi-fetch-jira" class="mt-2 btn btn-primary">fetch Jira data</button>
+						<button type="button" id="kpi-week-calculate" class="mt-2 btn btn-primary">week calculate</button>
+						<button type="button" id="kpi-season-calculate" class="mt-2 btn btn-primary">season calculate</button>
 						<hr/>
 			
 						<div class="form-group">
@@ -200,22 +192,7 @@
 						</div>
 						<div class="email-container my-4">
 							<div class="email-dropdown-container">
-								<select class="email-dropdown form-control">
-									<option disabled="true" selected="true">Select an email</option>
-									<option value="davidmayo@moustacherepublic.com">davidmayo@moustacherepublic.com</option>
-									<option value="jamesprime@moustacherepublic.com">jamesprime@moustacherepublic.com</option>
-									<option value="richard@moustacherepublic.com">richard@moustacherepublic.com</option>
-									<option value="jason@moustacherepublic.com">jason@moustacherepublic.com</option>
-									<option value="kai@moustacherepublic.com">kai@moustacherepublic.com</option>
-									<option value="john@moustacherepublic.com">john@moustacherepublic.com</option>
-									<option value="barrick@moustacherepublic.com">barrick@moustacherepublic.com</option>
-									<option value="jonathan@moustacherepublic.com">jonathan@moustacherepublic.com</option>
-									<option value="nancie@moustacherepublic.com">nancie@moustacherepublic.com</option>
-									<option value="anni@moustacherepublic.com">anni@moustacherepublic.com</option>
-									<option value="theresia@moustacherepublic.com">theresia@moustacherepublic.com</option>
-									<option value="jamie@moustacherepublic.com">jamie@moustacherepublic.com</option>
-									<option value="michael@moustacherepublic.com">michael@moustacherepublic.com</option>
-									<option value="jonathanzhou@moustacherepublic.com">jonathanzhou@moustacherepublic.com</option>
+								<select class="email-dropdown form-control" id="kpi-vote-select-user">
 								</select>
 							</div>
 							<div class="email-result-container my-4"></div>
@@ -243,11 +220,11 @@
 			</div>
 
 			<div>
-				<button id="kpi-season-query1" class="btn btn-primary">query season 1</button>
-				<button id="kpi-season-query2" class="btn btn-primary">query season 2</button>
-				<button id="kpi-season-query3" class="btn btn-primary">query season 3</button>
-				<button id="kpi-season-query4" class="btn btn-primary">query season 4</button>
-				<button id="kpi-week-query" class="btn btn-primary">tell me about this week</button>
+				<button id="kpi-season-query1" class="mt-2 btn btn-primary">query season 1</button>
+				<button id="kpi-season-query2" class="mt-2 btn btn-primary">query season 2</button>
+				<button id="kpi-season-query3" class="mt-2 btn btn-primary">query season 3</button>
+				<button id="kpi-season-query4" class="mt-2 btn btn-primary">query season 4</button>
+				<button id="kpi-week-query" class="mt-2 btn btn-primary">tell me about this week</button>
 				<hr />
 				<h3>Team Bar Chart</h3>
 				<canvas id="kpi-season-chart" width="400" height="400"></canvas>

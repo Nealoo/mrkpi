@@ -5,7 +5,9 @@ import report from './report'
 
 import {baseUrl} from './utils/env';
 import {logoutAction} from './auth';
-import {getBaseUserInfo} from './utils/tools'
+import {getBaseUserInfo} from './utils/tools';
+
+import selectTpl from '../template/team-options.handlebars';
 
 export default function(){
     report('tl');
@@ -32,6 +34,10 @@ export default function(){
 
     document.querySelector("#kpi-form-year").value = localStorage.getItem('mrkpiYear');
     document.querySelector("#kpi-form-week").value = localStorage.getItem('mrkpiWeek');
+
+    const tlTeam = localStorage.getItem('mrkpiTeam');
+    document.querySelector('#tl-selected-user').innerHTML = selectTpl({tlTeam});
+    document.querySelector('#kpi-vote-select-user').innerHTML = selectTpl({tlTeam});
     
     function getHoursInfo(){
         var voteType = document.querySelector("#kpi-form-voteType").value;
@@ -140,7 +146,55 @@ export default function(){
 
         var params = getBaseUserInfo();
 
-        url.search = new URLSearchParams(params).toString();
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(params),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function(status){return status.json();}).then(function(res){
+            var textarea = document.querySelector("textarea");
+            textarea.value = JSON.stringify(res);
+
+            document.querySelector("button.load-json").click();
+        })
+        
+        
+    }, false);
+
+    document.querySelector('#kpi-fetch-jira').addEventListener('click', function(){
+        
+        var url = new URL(`${baseUrl}checkweekhours/`);
+
+        var params = getBaseUserInfo();
+        params.setKPI = 'True';
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(params),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function(status){return status.json();}).then(function(res){
+            var textarea = document.querySelector("textarea");
+            textarea.value = JSON.stringify(res);
+
+            document.querySelector("button.load-json").click();
+        })
+        
+        
+    }, false);
+
+    document.querySelector('#kpi-season-calculate').addEventListener('click', function(){
+        
+        var url = new URL(`${baseUrl}calculateseasonpoints/`);
+
+        var params = getBaseUserInfo();
+        params.season = document.querySelector("#kpi-form-season").value;
+
+        if(!params.season){
+            alert('season can\'t be empty');
+        }
 
         fetch(url, {
             method: 'POST',
