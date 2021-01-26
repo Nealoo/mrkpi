@@ -25,7 +25,7 @@
         <div id="kpi-form">
 
             <div id="kpi-year-week-box" class="sticky-top row" style="background-color: white;">
-                
+
                 <div class="col-12">
                     <h3>current week number: <b id="kpi-current-week-number"></b></h3>
                 </div>
@@ -70,42 +70,16 @@
                 <input type="text" class="form-control" id="kpi-form-afterHourExtra">
             </div>
 
-            <!-- <div class="form-group">
-                <label for="kpi-form-leave">leave</label>
-                <input type="text" class="form-control" id="kpi-form-leave">
-            </div>
-
-            <div class="form-group">
-                <label for="kpi-form-totalBillable">totalBillable</label>
-                <input type="text" class="form-control" id="kpi-form-totalBillable">
-                <small class="form-text text-muted">This is all your billable hours for this week, so please include your extra hours, 1.5 hours and leave hours in. Also please make sure the number here is same with the billable number in Jira.</small>
-            </div> -->
-
             <div class="form-group">
                 <label for="kpi-form-totalActualWorking">totalActualWorking</label>
                 <input type="text" class="form-control" id="kpi-form-totalActualWorking">
                 <small class="form-text text-muted">Please put your real working houers here, it can be different with the Jira hours.</small>
             </div>
 
-            <!-- <div class="form-group">
-                <label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
-                <input type="text" class="form-control" id="kpi-form-totalJiraWorking">
-            </div> -->
-
             <div class="form-group">
                 <label for="kpi-form-fullAttendanceDay">fullAttendanceDay</label>
                 <input type="text" class="form-control" id="kpi-form-fullAttendanceDay">
             </div>
-
-            <!-- <div class="form-group">
-                <label for="kpi-form-logTimeDaily">logTimeDaily(1 or 0)</label>
-                <input type="text" class="form-control" id="kpi-form-logTimeDaily">
-            </div>
-
-            <div class="form-group">
-                <label for="kpi-form-planTimeDaily">planTimeDaily(0.5 or 0)</label>
-                <input type="text" class="form-control" id="kpi-form-planTimeDaily">
-            </div> -->
 
             <div class="form-group">
                 <label for="kpi-form-writeShareDoc">writeShareDoc(0.5 or 0)</label>
@@ -191,6 +165,62 @@
 </div>
 
 <div>
+    <button data-season="1" class="btn btn-primary kpi-season-table-query">query season 1</button>
+    <button data-season="2" class="btn btn-primary kpi-season-table-query">query season 2</button>
+    <button data-season="3" class="btn btn-primary kpi-season-table-query">query season 3</button>
+    <button data-season="4" class="btn btn-primary kpi-season-table-query">query season 4</button>
+
+    <hr />
+    <h3>Season Data Table view</h3>
+
+    <div class="overflow-auto w-100">
+        <style>
+            #dev_kpi_table th:first-child, td:first-child
+            {
+            position:sticky;
+            left:-1px;
+            background-color: #fff;
+            }
+        </style>
+        <table id="dev_kpi_table" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Working</th>
+                    <th scope="col">Billable</th>
+                    <th scope="col">points</th>
+                    <th scope="col">fullAttendancePoints</th>
+                    <th scope="col">logTimeDaily</th>
+                    <th scope="col">planTimeDaily</th>
+                    <th scope="col">writeShareDoc</th>
+                    <th scope="col">fullAttendanceDay</th>
+                    <th scope="col">fullWeekDay</th>
+                    <th scope="col">extraKPIHours</th>
+                    <th scope="col">leave</th>
+                    <th scope="col">normalKPIHours</th>
+                    <th scope="col">totalActualWorking</th>
+                    <th scope="col">helpVotePoints</th>
+                    <th scope="col">helpingWinner</th>
+                    <th scope="col">mostBillable</th>
+                    <th scope="col">mostWorking</th>
+                    <th scope="col">shareVotePoints</th>
+                    <th scope="col">sharingWinner</th>
+                    <th scope="col">sharingTopic</th>
+                    <th scope="col">totalAttitude</th>
+                    <th scope="col">totalExtra</th>
+                    <th scope="col">totalExtraKPIHours</th>
+                    <th scope="col">totalGoal</th>
+                    <th scope="col">totalHelping</th>
+                    <th scope="col">totalNormalKPIHours</th>
+                    <th scope="col">totalPerformance</th>
+                    <th scope="col">totalSharing</th>
+                </tr>
+            </thead>
+            <tbody id="dev_kpi_tbody">
+            </tbody>
+        </table>
+    </div>
+
     <button id="kpi-season-query1" class="btn btn-primary">query season 1</button>
     <button id="kpi-season-query2" class="btn btn-primary">query season 2</button>
     <button id="kpi-season-query3" class="btn btn-primary">query season 3</button>

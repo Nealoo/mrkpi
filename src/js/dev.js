@@ -5,7 +5,7 @@ import report from './report'
 
 import {baseUrl} from './utils/env';
 import {logoutAction} from './auth';
-import {getBaseUserInfo} from './utils/tools'
+import {getBaseUserInfo, kpiTableTemplate} from './utils/tools'
 
 export default function(){
     report();
@@ -32,6 +32,23 @@ export default function(){
 
     document.querySelector("#kpi-form-year").value = localStorage.getItem('mrkpiYear');
     document.querySelector("#kpi-form-week").value = localStorage.getItem('mrkpiWeek');
+
+    document.querySelectorAll('.kpi-season-table-query').forEach(elem=>elem.addEventListener('click', function(e){
+        InitSeasonTable(e.target.dataset.season);
+    }));
+
+    function InitSeasonTable(season){
+        let userParams = getBaseUserInfo();
+        userParams.season = season;
+
+        var url = new URL(`${baseUrl}report/season/${userParams.email}/`);
+
+        url.search = new URLSearchParams(userParams).toString();
+
+        fetch(url).then(function(status){return status.json();}).then(function(res){
+            document.querySelector('#dev_kpi_tbody').innerHTML = kpiTableTemplate(res.response, season);
+        })
+    }
     
     function getHoursInfo(){
         // var clientBillable = document.querySelector("#kpi-form-clientBillable").value;
