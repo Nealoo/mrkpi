@@ -74,5 +74,116 @@ KPI app release note - 20210123
 12. UI & Integration, support query for season 1 - 4.
 13. UI, added TL page to get/set dev’s points, and show report in a table view. 
 
+KPI app release note - 20210118
+1. Integration, update daily log/plan check script to use the new database.
+
+KPI app release note - 20210106
+1. Integration, removed all hardcoded '2020'
+2. Integration, migrate database, update code
+
+KPI app release note - 20201223
+1. Integration, updated the tempo key.
+
+KPI app release note - 20201117
+1. Integration, update code to test Slack command, code is imcomplete
+
+KPI app release note - 20201113
+1. Integration, pdate Slack notice to notice voter by Slack.
+
+KPI app release note - 20201023
+1. Integration, update Theresis's kpi threshold
+2. Integration, update Slck user code.
+
+KPI app release note - 20201022
+1. Integration, add taco vote into the week kpi report
+
+KPI app release note - 20201021
+1. exclude the after hour extra
+
+KPI app release note - 20201016
+1. add the user validate api
+
+KPI app release note - 20201015
+1. fix the multiple vote bug
+2. add function to calculate automatically every week
+3. set automatically set worklog job
+4. remove the old logic before team function
+5. update the report related function to support team
+
+KPI app release note - 20201009
+1. open season 4 and add support to d team slack check
+2. update the chicken listener function
+3. update the vote limit, so dev can't vote for different team
+4. update KPI user validation
+5. add more user for the temp hours
+
+KPI app release note - 20201006
+1. Frontend, DEV, add support to .env file
+2. Integration, add team related helper function
+
+KPI app release note - 20200910
+1. quick fix for the nz time zone
+
+KPI app release note - 20200731
+1. utilisation update
+   1. add color
+   2. add index
+   3. add target/role
+2. Integration, support leave calculation, in case the incorrect time log
+
+KPI app release note - 20200729
+1. release utilisation page
+2. add new api to support the utilisation page
+3. UI, remove jira related fields
+4. Integration, add support to get data from tempo
+
+KPI app release note - 20200720
+1. add radar chart
+2. Bug fixing, corrected the wrong field title
+
+KPI app release note - 20210719
+1. support skip vote
+2. add support to the season 3 chart
+3. Integration, add support to the season KPI chart query
+
+
+KPI app release note - 20200717  KPI version 1 released
+1. installed webpack
+2. updated code structure
+3. add bootstrap
+
+KPI app release note - 20200716
+1. update vote select function
+2. Integration, add season calculation and season report
+
+
+KPI app release note - 20200713
+1. upated the voteType to a select
+2. add copy to cilpboard feature for vote
+
+KPI app release note - 20200710
+2. provide the email list for vote and the copy function
+3. Integration, added run chicken to get vote.
+
+
+KPI app release note - 20200220
+1. first version released.
+2. added buttons to send request.
+3. added field to show response.
+
+
+KPI app release note - 20200219
+1. frontend project created on github.
+
+KPI app release note - 20200201
+1. add validation
+
+KPI app release note - 20200130
+1. set hours function, set vote function, get points function
+
+
+KPI app release note - 20200123
+1. Integration, init the integration
+
 
 npx github-markdown release_note.md > release_note.html
