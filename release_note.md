@@ -45,6 +45,10 @@ under consideration
 13. Integration, add more information to the weeek/season report.
 14. UI for vote check.
 
+KPI app release note - 20210127
+1. UI/Integration, TL page, add week checkCompletion button/feature.
+
+
 KPI app release note - 20210126
 1. UI, updated TL page floating panel.
 2. UI, dev page show season data table view.

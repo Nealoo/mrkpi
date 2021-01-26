@@ -162,6 +162,29 @@ export default function(){
         
     }, false);
 
+    document.querySelector('#kpi-week-check').addEventListener('click', function(){
+        
+        var url = new URL(`${baseUrl}calculatepoints/`);
+
+        var params = getBaseUserInfo();
+        params.checkCompletion = 'True';
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(params),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }).then(function(status){return status.json();}).then(function(res){
+            var textarea = document.querySelector("textarea");
+            textarea.value = JSON.stringify(res);
+
+            document.querySelector("button.load-json").click();
+        })
+        
+        
+    }, false);
+
     document.querySelector('#kpi-fetch-jira').addEventListener('click', function(){
         
         var url = new URL(`${baseUrl}checkweekhours/`);
