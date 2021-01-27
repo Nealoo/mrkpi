@@ -1,17 +1,19 @@
 Bug reports, feature requests & pull requests(frontend page only for now) are welcome
 
 WIP:
-1. Integration, set 'complete status' for week data.
-8. Integration, new API for all week data for one developer.
-11. UI, add button for dev to query all weeks data (including 'complete status') for one season.
+1. Integration, add round to all calculation function.
+2. Integration, add leave check for the full attendance check.
+3. Integration, set 'complete status' for week data.
+4. Integration, new API for all week data for one developer.
+5.  UI, add button for dev to query all weeks data (including 'complete status') for one season.
     1.  show all fields and add filters to show/hide the columns in the table.
-12. UI, implement loading to all buttons.
-13. UI, add sweet alert for success/error message.
-14. UI, add tooptip for each fields.
-15. UI, add button to show hide the API response panel.
+6.  UI, implement loading to all buttons.
+7.  UI, add sweet alert for success/error message.
+8.  UI, add tooptip for each fields.
+9.  UI, add button to show hide the API response panel.
    1. show a floating button in the corner, click to show an extra panel to show the fields.
-16. UI, update the layout to show two input box each line for numbers.
-17. after hour 1.5 apply/approve.
+10. UI, update the layout to show two input box each line for numbers.
+11. after hour 1.5 apply/approve.
     
 
 TL page changes
@@ -49,6 +51,9 @@ KPI app release note - 20210127
 1. UI/Integration, TL page, add week checkCompletion button/feature.
 2. UI/Integration, TL page, allow TL to query seasonal weeks details report.
 3. UI, TL page, make the field compact.
+4. DEV, combined all table to one single template.
+5. UI, set default value '0' for the table data.
+6. UI, add 'afterHour' and 'afterHourExtra' to the table data view.
 
 
 KPI app release note - 20210126

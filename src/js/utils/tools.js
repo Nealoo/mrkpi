@@ -86,34 +86,36 @@ export function kpiTableTemplate(kpiData, season=false) {
             return `
                 <tr>
                     <td>${generateIndexKey(userEmail)}</td>
-                    <td>${kpiData[userEmail]?.hours?.totalJiraWorking}</td>
-                    <td>${kpiData[userEmail]?.hours?.totalBillable}</td>
-                    <td>${kpiData[userEmail]?.totalPoints}</td>
-                    <td>${kpiData[userEmail]?.attitude?.fullAttendancePoints}</td>
-                    <td>${kpiData[userEmail]?.attitude?.logTimeDaily}</td>
-                    <td>${kpiData[userEmail]?.attitude?.planTimeDaily}</td>
-                    <td>${kpiData[userEmail]?.attitude?.writeShareDoc}</td>
-                    <td>${kpiData[userEmail]?.fullAttendanceDay}</td>
-                    <td>${kpiData[userEmail]?.fullWeekDay}</td>
-                    <td>${kpiData[userEmail]?.hours?.extraKPIHours}</td>
-                    <td>${kpiData[userEmail]?.hours?.leave}</td>
-                    <td>${kpiData[userEmail]?.hours?.normalKPIHours}</td>
-                    <td>${kpiData[userEmail]?.hours?.totalActualWorking}</td>
-                    <td>${kpiData[userEmail]?.performance?.helpVotePoints}</td>
-                    <td>${kpiData[userEmail]?.performance?.helpingWinner}</td>
-                    <td>${kpiData[userEmail]?.performance?.mostBillable}</td>
-                    <td>${kpiData[userEmail]?.performance?.mostWorking}</td>
-                    <td>${kpiData[userEmail]?.performance?.shareVotePoints}</td>
-                    <td>${kpiData[userEmail]?.performance?.sharingWinner}</td>
-                    <td>${kpiData[userEmail]?.sharingTopic}</td>
-                    <td>${kpiData[userEmail]?.totalAttitude}</td>
-                    <td>${kpiData[userEmail]?.totalExtra}</td>
-                    <td>${kpiData[userEmail]?.totalExtraKPIHours}</td>
-                    <td>${kpiData[userEmail]?.totalGoal}</td>
-                    <td>${kpiData[userEmail]?.totalHelping}</td>
-                    <td>${kpiData[userEmail]?.totalNormalKPIHours}</td>
-                    <td>${kpiData[userEmail]?.totalPerformance}</td>
-                    <td>${kpiData[userEmail]?.totalSharing}</td>
+                    <td>${kpiData[userEmail]?.hours?.totalJiraWorking || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.totalBillable || 0}</td>
+                    <td>${kpiData[userEmail]?.totalPoints || 0}</td>
+                    <td>${kpiData[userEmail]?.attitude?.logTimeDaily || 0}</td>
+                    <td>${kpiData[userEmail]?.attitude?.planTimeDaily || 0}</td>
+                    <td>${kpiData[userEmail]?.attitude?.writeShareDoc || 0}</td>
+                    <td>${kpiData[userEmail]?.attitude?.fullAttendancePoints || 0}</td>
+                    <td>${kpiData[userEmail]?.fullAttendanceDay || 0}</td>
+                    <td>${kpiData[userEmail]?.fullWeekDay || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.leave || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.normalKPIHours || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.afterHour || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.afterHourExtra || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.extraKPIHours || 0}</td>
+                    <td>${kpiData[userEmail]?.hours?.totalActualWorking || 0}</td>
+                    <td>${kpiData[userEmail]?.performance?.helpVotePoints || 0}</td>
+                    <td>${kpiData[userEmail]?.performance?.helpingWinner || 0}</td>
+                    <td>${kpiData[userEmail]?.performance?.mostBillable || 0}</td>
+                    <td>${kpiData[userEmail]?.performance?.mostWorking || 0}</td>
+                    <td>${kpiData[userEmail]?.performance?.shareVotePoints || 0}</td>
+                    <td>${kpiData[userEmail]?.performance?.sharingWinner || 0}</td>
+                    <td>${kpiData[userEmail]?.sharingTopic || ''}</td>
+                    <td>${kpiData[userEmail]?.totalAttitude || 0}</td>
+                    <td>${kpiData[userEmail]?.totalExtra || 0}</td>
+                    <td>${kpiData[userEmail]?.totalExtraKPIHours || 0}</td>
+                    <td>${kpiData[userEmail]?.totalGoal || 0}</td>
+                    <td>${kpiData[userEmail]?.totalHelping || 0}</td>
+                    <td>${kpiData[userEmail]?.totalNormalKPIHours || 0}</td>
+                    <td>${kpiData[userEmail]?.totalPerformance || 0}</td>
+                    <td>${kpiData[userEmail]?.totalSharing || 0}</td>
                 </tr> 
             `
         }).join('')}

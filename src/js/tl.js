@@ -8,6 +8,7 @@ import {logoutAction} from './auth';
 import {getBaseUserInfo, kpiTableTemplate} from './utils/tools';
 
 import selectTpl from '../template/team-options.handlebars';
+import dataTableTpl from '../template/data_table.handlebars';
 
 export default function(){
     report('tl');
@@ -38,6 +39,9 @@ export default function(){
     const tlTeam = localStorage.getItem('mrkpiTeam');
     document.querySelector('#tl-selected-user').innerHTML = selectTpl({tlTeam});
     document.querySelector('#kpi-vote-select-user').innerHTML = selectTpl({tlTeam});
+
+    document.querySelector('#kpi-dev-table').innerHTML = dataTableTpl({'type': 'dev'});
+    document.querySelector('#kpi-tl-table').innerHTML = dataTableTpl({'type': 'tl'});
 
     document.querySelectorAll('.kpi-season-table-query').forEach(elem=>elem.addEventListener('click', function(e){
         InitSeasonTable(e.target.dataset.season);
