@@ -1,7 +1,9 @@
 import {baseUrl} from './utils/env';
 import dev from './dev';
+import tl from './tl';
 
 import devTpl from '../template/dev.handlebars';
+import tlTpl from '../template/tl.handlebars';
 import loginTpl from '../template/login.handlebars';
 
 import funnyMessages from './loading-message';
@@ -57,7 +59,9 @@ export function loginAction(userName, password, team, isAdmin){
         document.querySelector('#kpi-content').innerHTML = devTpl({team});
         dev();
     }else{
-        window.location.href = '/tl.html';
+        document.querySelector('#kpi-content').innerHTML = tlTpl({team});
+        tl();
+        // window.location.href = '/tl.html';
     }
 }
 

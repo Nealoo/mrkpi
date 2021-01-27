@@ -120,24 +120,7 @@
             <div class="email-container my-4">
                 <div class="email-dropdown-container">
                     <select class="email-dropdown form-control">
-                        <option disabled="true" selected="true">Select an email</option>
-                        {{#eq team 'neal'}}
-                        <option value="davidmayo@moustacherepublic.com">davidmayo@moustacherepublic.com</option>
-                        <option value="richard@moustacherepublic.com">richard@moustacherepublic.com</option>
-                        <option value="jason@moustacherepublic.com">jason@moustacherepublic.com</option>
-                        <option value="kai@moustacherepublic.com">kai@moustacherepublic.com</option>
-                        <option value="williamt@moustacherepublic.com">williamt@moustacherepublic.com</option>
-                        <option value="caleb@moustacherepublic.com">caleb@moustacherepublic.com</option>
-                        {{else eq team 'david'}}
-                        <option value="barrick@moustacherepublic.com">barrick@moustacherepublic.com</option>
-                        <option value="jonathan@moustacherepublic.com">jonathan@moustacherepublic.com</option>
-                        <option value="nancie@moustacherepublic.com">nancie@moustacherepublic.com</option>
-                        <option value="michael@moustacherepublic.com">michael@moustacherepublic.com</option>
-                        <option value="theresia@moustacherepublic.com">theresia@moustacherepublic.com</option>
-                        <option value="jamie@moustacherepublic.com">jamie@moustacherepublic.com</option>
-                        <option value="jonathanzhou@moustacherepublic.com">jonathanzhou@moustacherepublic.com</option>
-                        <option value="anni@moustacherepublic.com">anni@moustacherepublic.com</option>
-                        {{/eq}}
+                        {{> team-options team}}
                     </select>
                 </div>
                 <div class="email-result-container my-4"></div>
@@ -173,7 +156,7 @@
     <hr />
     <h3>Season Data Table view</h3>
 
-    {{> data_table type="dev"}}
+    {{> data-table type="dev"}}
 
     <button id="kpi-season-query1" class="mt-2 btn btn-primary">query season 1</button>
     <button id="kpi-season-query2" class="mt-2 btn btn-primary">query season 2</button>

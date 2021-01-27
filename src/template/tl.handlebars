@@ -1,0 +1,251 @@
+
+<div class="row">
+
+    <div id="kpi-response-area" class="col-12 col-md-6 order-md-2 sticky-top vh-100 overflow-auto">
+        <textarea style="display:none; width: 100%; min-height: 100px;"></textarea>
+        <div style="display:none">
+            <button type="button" class="load-json">Load JSON</button>
+            <button type="button" class="collapse">Collapse to level 1</button>
+            <button type="button" class="maxlvl">Show JSON to level 1</button>
+        </div>
+        <h2>KPI API response:</h2>
+        <div id="json">
+            <p>
+                Please allow up to 20 second after you click on the button to wake the Heroku app.<br>
+                <b>Loading button</b> will be coming before 2022 S4.
+            </p>
+            <p>
+                API response will be displayed here directly.<br>
+                Data handling will be implemented before 2060.
+            </p>
+            
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 order-md-1">
+        
+        <div id="kpi-form">
+
+            <div id="kpi-year-week-box" class="sticky-top row" style="background-color: white; box-shadow: #0505051f 1px 1px 10px 2px;">
+        
+                <div class="col-12">
+                    <h3>current week number: <b id="kpi-current-week-number"></b></h3>
+                </div>
+
+                <div class="form-group col-4">
+                    <label for="kpi-form-year">Year</label>
+                    <input type="text" class="form-control" id="kpi-form-year">
+                </div>
+
+                <div class="form-group col-4">
+                    <label for="kpi-form-week">Week</label>
+                    <input type="text" class="form-control" id="kpi-form-week">
+                </div>
+
+                <div class="form-group col-4">
+                    <label for="kpi-form-week">Season</label>
+                    <input type="text" class="form-control" id="kpi-form-season">
+                </div>
+
+                <div class="form-group col-12">
+                    <select class="form-control" id="tl-selected-user">
+                        {{> team-options team}}
+                    </select>
+                </div>
+            </div>
+            
+            <hr/>
+            
+            <button type="button" id="kpi-form-get-points" class="mt-2 btn btn-primary">get week points</button>
+            <button type="button" id="kpi-logout" class="mt-2 btn btn-primary">Log out</button>
+            <button type="button" id="kpi-fetch-jira" class="mt-2 btn btn-primary">fetch Jira data</button>
+            <button type="button" id="kpi-week-calculate" class="mt-2 btn btn-primary">week calculate</button>
+            <button type="button" id="kpi-week-check" class="mt-2 btn btn-primary">week check</button>
+            <button type="button" id="kpi-season-calculate" class="mt-2 btn btn-primary">season calculate</button>
+            <hr/>
+
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="kpi-form-voteType">voteType</label>
+                    <select class="form-control" id="kpi-form-voteType">
+                        <option value="techLeadVoteShare">techLeadVoteShare</option>
+                        <option value="techLeadVoteHelp">techLeadVoteHelp</option>
+                    </select>
+                </div>
+    
+                <div class="form-group col-6">
+                    <label for="kpi-form-votePoint">votePoint</label>
+                    <input type="text" class="form-control" id="kpi-form-votePoint">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="kpi-form-voteReason">voteReason</label>
+                <input type="text" class="form-control" id="kpi-form-voteReason">
+            </div>
+
+            <div class="row">
+                <div class="form-group col-3">
+                    <label for="kpi-form-lateDay">lateDay</label>
+                    <input type="text" class="form-control" id="kpi-form-lateDay">
+                </div>
+    
+                <div class="form-group col-3">
+                    <label for="kpi-form-leaveDay">leaveDay</label>
+                    <input type="text" class="form-control" id="kpi-form-leaveDay">
+                </div>
+
+                <div class="form-group col-3">
+                    <label for="kpi-form-earlyLeaveDay">earlyLeaveDay</label>
+                    <input type="text" class="form-control" id="kpi-form-earlyLeaveDay">
+                </div>
+
+                <div class="form-group col-3">
+                    <label for="kpi-form-wfhDay">wfhDay</label>
+                    <input type="text" class="form-control" id="kpi-form-wfhDay">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-demoPoints">demoPoints</label>
+                    <input type="text" class="form-control" id="kpi-form-demoPoints">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-mrComponent">mrComponent</label>
+                    <input type="text" class="form-control" id="kpi-form-mrComponent">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-knowledgeReuse">knowledgeReuse</label>
+                    <input type="text" class="form-control" id="kpi-form-knowledgeReuse">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-bugFromTester">bugFromTester</label>
+                    <input type="text" class="form-control" id="kpi-form-bugFromTester">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-urgentDelivery">urgentDelivery</label>
+                    <input type="text" class="form-control" id="kpi-form-urgentDelivery">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-seriousMistakePoint">seriousMistakePt</label>
+                    <input type="text" class="form-control" id="kpi-form-seriousMistakePoint">
+                </div>
+
+                <div class="form-group col-12 col-md-6">
+                    <label for="kpi-form-seriousMistakeReason">seriousMistakeReason</label>
+                    <input type="text" class="form-control" id="kpi-form-seriousMistakeReason">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-totalBillable">totalBillable</label>
+                    <input type="text" class="form-control" id="kpi-form-totalBillable">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-totalActualWorking">totalActualWorking</label>
+                    <input type="text" class="form-control" id="kpi-form-totalActualWorking">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
+                    <input type="text" class="form-control" id="kpi-form-totalJiraWorking">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-leave">leave</label>
+                    <input type="text" class="form-control" id="kpi-form-leave">
+                </div>
+            </div>
+            
+
+            <button type="button" id="kpi-form-set-hours" class="btn btn-primary">set hours/points</button>
+            <hr/>
+
+            <select id="kpi-form-voteType" class="form-control">
+                <option value="">voteType...</option>
+                <option value="shareVoteRecord">shareVoteRecord</option>
+                <option value="helpVoteRecord">helpVoteRecord</option>
+            </select>
+            skip vote is not supported by the api
+            <div class="form-check my-4">
+                <input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-true" value="True" checked>
+                <label class="form-check-label" for="kpi-form-skipvote-true">
+                Skip vote
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-false" value="False" checked>
+                <label class="form-check-label" for="kpi-form-skipvote-false">
+                Not skip vote
+                </label>
+            </div>
+            <div class="email-container my-4">
+                <div class="email-dropdown-container">
+                    <select class="email-dropdown form-control" id="kpi-vote-select-user">
+                        {{> team-options team}}
+                    </select>
+                </div>
+                <div class="email-result-container my-4"></div>
+                <div class="form-group">
+                    <label for="kpi-form-voteFor">voteFor</label>
+                    <textarea type="text" class="form-control email-result-input" id="kpi-form-voteFor" style="height: 100px;"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="kpi-form-votePoint">votePoint</label>
+                <input type="text" class="form-control" id="kpi-form-votePoint">
+            </div>
+
+            <div class="form-group">
+                <label for="kpi-form-voteReason">voteReason</label>
+                <input type="text" class="form-control" id="kpi-form-voteReason">
+            </div>
+
+            <button type="button" id="kpi-form-clear-vote" class="btn btn-primary">clear</button>
+            <button type="button" id="kpi-form-set-vote" class="btn btn-primary">set votes</button>
+            <hr/>
+            
+        </div>
+    </div>
+</div>
+
+<div>
+
+    <button data-season="1" class="btn btn-primary kpi-season-table-query">query season 1</button>
+    <button data-season="2" class="btn btn-primary kpi-season-table-query">query season 2</button>
+    <button data-season="3" class="btn btn-primary kpi-season-table-query">query season 3</button>
+    <button data-season="4" class="btn btn-primary kpi-season-table-query">query season 4</button>
+
+    <hr />
+    <h3>Season Data Table view for selected dev</h3>
+
+    {{> data-table type="dev"}}
+
+    <button id="kpi-season-query1" class="mt-2 btn btn-primary">query season 1</button>
+    <button id="kpi-season-query2" class="mt-2 btn btn-primary">query season 2</button>
+    <button id="kpi-season-query3" class="mt-2 btn btn-primary">query season 3</button>
+    <button id="kpi-season-query4" class="mt-2 btn btn-primary">query season 4</button>
+    <button id="kpi-week-query" class="mt-2 btn btn-primary">tell me about this week</button>
+    <hr />
+    <h3>Team Bar Chart</h3>
+    <canvas id="kpi-season-chart" width="400" height="400"></canvas>
+    <hr />
+    <h3>Team Week/Season Table View</h3>
+    {{> data-table type="tl"}}
+
+    <h3>Personal Radar Chart</h3>
+    tl radar chart will show all team members' data al in once
+    WIP...
+    <canvas id="kpi-season-radar-chart" width="400" height="400"></canvas>
+    <hr />
+</div>
