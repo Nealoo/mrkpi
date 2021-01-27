@@ -48,6 +48,7 @@ under consideration
 KPI app release note - 20210127
 1. UI/Integration, TL page, add week checkCompletion button/feature.
 2. UI/Integration, TL page, allow TL to query seasonal weeks details report.
+3. UI, TL page, make the field compact.
 
 
 KPI app release note - 20210126

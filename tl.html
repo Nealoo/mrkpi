@@ -43,7 +43,7 @@
 					
 					<div id="kpi-form">
 
-						<div id="kpi-year-week-box" class="sticky-top row" style="background-color: white;">
+						<div id="kpi-year-week-box" class="sticky-top row" style="background-color: white; box-shadow: #0505051f 1px 1px 10px 2px;">
 					
 							<div class="col-12">
 								<h3>current week number: <b id="kpi-current-week-number"></b></h3>
@@ -80,97 +80,111 @@
 						<button type="button" id="kpi-season-calculate" class="mt-2 btn btn-primary">season calculate</button>
 						<hr/>
 			
-						<div class="form-group">
-							<label for="kpi-form-voteType">voteType(techLeadVoteShare or techLeadVoteHelp)</label>
-							<input type="text" class="form-control" id="kpi-form-voteType">
+						<div class="row">
+							<div class="form-group col-6">
+								<label for="kpi-form-voteType">voteType</label>
+								<select class="form-control" id="kpi-form-voteType">
+									<option value="techLeadVoteShare">techLeadVoteShare</option>
+									<option value="techLeadVoteHelp">techLeadVoteHelp</option>
+								</select>
+							</div>
+				
+							<div class="form-group col-6">
+								<label for="kpi-form-votePoint">votePoint</label>
+								<input type="text" class="form-control" id="kpi-form-votePoint">
+							</div>
 						</div>
-			
-						<div class="form-group">
-							<label for="kpi-form-votePoint">votePoint</label>
-							<input type="text" class="form-control" id="kpi-form-votePoint">
-						</div>
-			
+						
 						<div class="form-group">
 							<label for="kpi-form-voteReason">voteReason</label>
 							<input type="text" class="form-control" id="kpi-form-voteReason">
 						</div>
 			
-						<div class="form-group">
-							<label for="kpi-form-lateDay">lateDay</label>
-							<input type="text" class="form-control" id="kpi-form-lateDay">
+						<div class="row">
+							<div class="form-group col-3">
+								<label for="kpi-form-lateDay">lateDay</label>
+								<input type="text" class="form-control" id="kpi-form-lateDay">
+							</div>
+				
+							<div class="form-group col-3">
+								<label for="kpi-form-leaveDay">leaveDay</label>
+								<input type="text" class="form-control" id="kpi-form-leaveDay">
+							</div>
+
+							<div class="form-group col-3">
+								<label for="kpi-form-earlyLeaveDay">earlyLeaveDay</label>
+								<input type="text" class="form-control" id="kpi-form-earlyLeaveDay">
+							</div>
+
+							<div class="form-group col-3">
+								<label for="kpi-form-wfhDay">wfhDay</label>
+								<input type="text" class="form-control" id="kpi-form-wfhDay">
+							</div>
 						</div>
+						
+						<div class="row">
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-demoPoints">demoPoints</label>
+								<input type="text" class="form-control" id="kpi-form-demoPoints">
+							</div>
+
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-mrComponent">mrComponent</label>
+								<input type="text" class="form-control" id="kpi-form-mrComponent">
+							</div>
+
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-knowledgeReuse">knowledgeReuse</label>
+								<input type="text" class="form-control" id="kpi-form-knowledgeReuse">
+							</div>
+
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-bugFromTester">bugFromTester</label>
+								<input type="text" class="form-control" id="kpi-form-bugFromTester">
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-urgentDelivery">urgentDelivery</label>
+								<input type="text" class="form-control" id="kpi-form-urgentDelivery">
+							</div>
+	
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-seriousMistakePoint">seriousMistakePt</label>
+								<input type="text" class="form-control" id="kpi-form-seriousMistakePoint">
+							</div>
+	
+							<div class="form-group col-12 col-md-6">
+								<label for="kpi-form-seriousMistakeReason">seriousMistakeReason</label>
+								<input type="text" class="form-control" id="kpi-form-seriousMistakeReason">
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-totalBillable">totalBillable</label>
+								<input type="text" class="form-control" id="kpi-form-totalBillable">
+							</div>
+	
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-totalActualWorking">totalActualWorking</label>
+								<input type="text" class="form-control" id="kpi-form-totalActualWorking">
+							</div>
+	
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
+								<input type="text" class="form-control" id="kpi-form-totalJiraWorking">
+							</div>
+	
+							<div class="form-group col-6 col-md-3">
+								<label for="kpi-form-leave">leave</label>
+								<input type="text" class="form-control" id="kpi-form-leave">
+							</div>
+						</div>
+						
 			
-						<div class="form-group">
-							<label for="kpi-form-leaveDay">leaveDay</label>
-							<input type="text" class="form-control" id="kpi-form-leaveDay">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-earlyLeaveDay">earlyLeaveDay</label>
-							<input type="text" class="form-control" id="kpi-form-earlyLeaveDay">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-wfhDay">wfhDay</label>
-							<input type="text" class="form-control" id="kpi-form-wfhDay">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-demoPoints">demoPoints</label>
-							<input type="text" class="form-control" id="kpi-form-demoPoints">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-mrComponent">mrComponent</label>
-							<input type="text" class="form-control" id="kpi-form-mrComponent">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-knowledgeReuse">knowledgeReuse</label>
-							<input type="text" class="form-control" id="kpi-form-knowledgeReuse">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-bugFromTester">bugFromTester</label>
-							<input type="text" class="form-control" id="kpi-form-bugFromTester">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-urgentDelivery">urgentDelivery</label>
-							<input type="text" class="form-control" id="kpi-form-urgentDelivery">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-seriousMistakePoint">seriousMistakePoint</label>
-							<input type="text" class="form-control" id="kpi-form-seriousMistakePoint">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-seriousMistakeReason">seriousMistakeReason</label>
-							<input type="text" class="form-control" id="kpi-form-seriousMistakeReason">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-totalBillable">totalBillable</label>
-							<input type="text" class="form-control" id="kpi-form-totalBillable">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-totalActualWorking">totalActualWorking</label>
-							<input type="text" class="form-control" id="kpi-form-totalActualWorking">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-totalJiraWorking">totalJiraWorking</label>
-							<input type="text" class="form-control" id="kpi-form-totalJiraWorking">
-						</div>
-
-						<div class="form-group">
-							<label for="kpi-form-leave">leave</label>
-							<input type="text" class="form-control" id="kpi-form-leave">
-						</div>
-			
-						<button type="button" id="kpi-form-set-hours" class="btn btn-primary">set hours</button>
+						<button type="button" id="kpi-form-set-hours" class="btn btn-primary">set hours/points</button>
 						<hr/>
 			
 						<select id="kpi-form-voteType" class="form-control">
