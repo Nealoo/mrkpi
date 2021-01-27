@@ -54,6 +54,8 @@ KPI app release note - 20210127
 4. DEV, combined all table to one single template.
 5. UI, set default value '0' for the table data.
 6. UI, add 'afterHour' and 'afterHourExtra' to the table data view.
+7. UI, add margin to season buttons.
+8. ui, add loading message.
 
 
 KPI app release note - 20210126

@@ -4,14 +4,16 @@ import dev from './dev';
 import devTpl from '../template/dev.handlebars';
 import loginTpl from '../template/login.handlebars';
 
+import funnyMessages from './loading-message';
+
 export default function(){
+
+    let loadingMessage = funnyMessages[Math.round(Math.random() * funnyMessages.length)];
+    document.querySelector('#kpi-content').innerHTML = `KPI API is waking...<br/>(${loadingMessage})`;
 
     let userCredentials = getUserInfoFromLocal();
 
     if(userCredentials.userName && userCredentials.password){
-        document.querySelector('#kpi-content').innerHTML = devTpl();
-        dev();
-
         validateUser(userCredentials.userName, userCredentials.password).then(res=>{
             if(res.isValidUser){
                 loginAction(userCredentials.userName, userCredentials.password, res.userTeam, res.userRole == 'admin');
