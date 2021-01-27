@@ -5,7 +5,7 @@ import report from './report'
 
 import {baseUrl} from './utils/env';
 import {logoutAction} from './auth';
-import {getBaseUserInfo} from './utils/tools';
+import {getBaseUserInfo, kpiTableTemplate} from './utils/tools';
 
 import selectTpl from '../template/team-options.handlebars';
 
@@ -38,6 +38,30 @@ export default function(){
     const tlTeam = localStorage.getItem('mrkpiTeam');
     document.querySelector('#tl-selected-user').innerHTML = selectTpl({tlTeam});
     document.querySelector('#kpi-vote-select-user').innerHTML = selectTpl({tlTeam});
+
+    document.querySelectorAll('.kpi-season-table-query').forEach(elem=>elem.addEventListener('click', function(e){
+        InitSeasonTable(e.target.dataset.season);
+    }));
+
+    function InitSeasonTable(season){
+        let userParams = getBaseUserInfo();
+        userParams.season = season;
+        userParams.tlEmail = userParams.email;
+        let devEmail = document.querySelector("#tl-selected-user").value;
+
+        if(!devEmail.includes('@mous')){
+            alert('dev email not selected.');
+            return false;
+        }
+
+        var url = new URL(`${baseUrl}report/season/${devEmail}/`);
+
+        url.search = new URLSearchParams(userParams).toString();
+
+        fetch(url).then(function(status){return status.json();}).then(function(res){
+            document.querySelector('#dev_kpi_tbody').innerHTML = kpiTableTemplate(res.response, season);
+        })
+    }
     
     function getHoursInfo(){
         var voteType = document.querySelector("#kpi-form-voteType").value;
