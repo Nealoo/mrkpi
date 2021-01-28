@@ -1,29 +1,21 @@
 Bug reports, feature requests & pull requests(frontend page only for now) are welcome
 
 WIP:
-1. Integration, add round to all calculation function.
-2. Integration, add leave check for the full attendance check.
-3. Integration, set 'complete status' for week data.
-4. Integration, new API for all week data for one developer.
-5.  UI, add button for dev to query all weeks data (including 'complete status') for one season.
-    1.  show all fields and add filters to show/hide the columns in the table.
-6.  UI, implement loading to all buttons.
-7.  UI, add sweet alert for success/error message.
-8.  UI, add tooptip for each fields.
-9.  UI, add button to show hide the API response panel.
-   1. show a floating button in the corner, click to show an extra panel to show the fields.
-10. UI, update the layout to show two input box each line for numbers.
-11. after hour 1.5 apply/approve.
+1. UI, update the dev kpi field to two fields one row. and add select.
+2. Integration, add round to all calculation function.
+3. Integration, add leave check for the full attendance check.
+4. Integration, set 'complete status' for week data.
+5. UI, add 'complete status' into the week data table.
+6. UI, implement loading to all buttons.
+7. UI, add sweet alert for success/error message.
+8. UI, add tooptip for each fields.
+9.  update the input fields layout.
+   1. show a floating button in the corner, click to show an extra panel to show the API response panel.
+10. after hour 1.5 apply/approve.
     
 
 TL page changes
-1. 
-2. TL page, user dropdown based on team.
-3. UI, TL page, add button for get jira hours and generate report.
-4. UI, show all fields and add filters to show/hide the columns in the table.
-5. 2. tl page, set points slipt to different tabs, based on the metrics.
-   1. each tab got its own set button to only submit content under the current tab.
-6. UI, TL page, show all radar charts.
+1. UI, TL page, show all radar charts.
 
 App init for the Manila team
 1. set up accounts for them.
@@ -34,18 +26,26 @@ under consideration
 1. CI, set up CI for deployment, only bundle production resources for public.
 2. Integration, redo the radar chart metrics.
 3. Integration, send "full attendance day" data to the channel every week.
-4. A button for set check for data completion.
-5. change password feature.
-6. Slack integration.
-7. UI, show the week query on the button.
-8. UI, TL login as a developer.
-9.  Query for all data for  a season in a table view
-    1. Filters for the table view.
-10. UI, show button for previous/next week query.
-11. Integration, add system log.
-12. Integration, create a new collection for the users.
-13. Integration, add more information to the weeek/season report.
-14. UI for vote check.
+4. change password feature.
+5. Slack integration.
+6. UI, show the week query on the button.
+7. UI, TL login as a developer.
+8. UI, Filters for the table view.
+9.  UI, show button for previous/next week query.
+10. Integration, add system log.
+11. Integration, create a new collection for the users.
+12. Integration, add more information to the weeek/season report.
+13. UI for vote check for dev.
+14. UI, tl page, set points slipt to different tabs, based on the metrics.
+   1. each tab got its own set button to only submit content under the current tab.
+
+KPI app release note - 20210128
+1. DEV, update dev, tl page to use the same base template.
+2. UI, adding loading status for the login button.
+3. UI, update the vote clear button to clear points and reasons.
+4. Integration, tl page, support skip vote for devs.
+5. UI, added more field to TL page, rearranged the fields.
+
 
 KPI app release note - 20210127
 1. UI/Integration, TL page, add week checkCompletion button/feature.

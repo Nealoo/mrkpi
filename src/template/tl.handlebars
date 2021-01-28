@@ -64,10 +64,13 @@
             <button type="button" id="kpi-season-calculate" class="mt-2 btn btn-primary">season calculate</button>
             <hr/>
 
+            <h4>TL vote</h4>
+            <hr>
             <div class="row">
                 <div class="form-group col-6">
                     <label for="kpi-form-voteType">voteType</label>
                     <select class="form-control" id="kpi-form-voteType">
+                        <option value="">Not set vote</option>
                         <option value="techLeadVoteShare">techLeadVoteShare</option>
                         <option value="techLeadVoteHelp">techLeadVoteHelp</option>
                     </select>
@@ -84,6 +87,8 @@
                 <input type="text" class="form-control" id="kpi-form-voteReason">
             </div>
 
+            <h4>attendance</h4>
+            <hr>
             <div class="row">
                 <div class="form-group col-3">
                     <label for="kpi-form-lateDay">lateDay</label>
@@ -105,33 +110,51 @@
                     <input type="text" class="form-control" id="kpi-form-wfhDay">
                 </div>
             </div>
-            
+
+            <h4>goal</h4>
+            <hr>
             <div class="row">
                 <div class="form-group col-6 col-md-3">
                     <label for="kpi-form-demoPoints">demoPoints</label>
                     <input type="text" class="form-control" id="kpi-form-demoPoints">
                 </div>
-
+            </div>
+            
+            <h4>extra</h4>
+            <hr>
+            <div class="row">
                 <div class="form-group col-6 col-md-3">
                     <label for="kpi-form-mrComponent">mrComponent</label>
                     <input type="text" class="form-control" id="kpi-form-mrComponent">
                 </div>
 
                 <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-urgentDelivery">urgentDelivery</label>
+                    <input type="text" class="form-control" id="kpi-form-urgentDelivery">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-techLeadBonus">techLeadBonus</label>
+                    <input type="text" class="form-control" id="kpi-form-techLeadBonus">
+                </div>
+            </div>
+
+            <h4>performance</h4>
+            <hr>
+            <div class="row">
+                <div class="form-group col-6 col-md-3">
                     <label for="kpi-form-knowledgeReuse">knowledgeReuse</label>
                     <input type="text" class="form-control" id="kpi-form-knowledgeReuse">
                 </div>
 
                 <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-taskEfficiency">taskEfficiency</label>
+                    <input type="text" class="form-control" id="kpi-form-taskEfficiency">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
                     <label for="kpi-form-bugFromTester">bugFromTester</label>
                     <input type="text" class="form-control" id="kpi-form-bugFromTester">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="form-group col-6 col-md-3">
-                    <label for="kpi-form-urgentDelivery">urgentDelivery</label>
-                    <input type="text" class="form-control" id="kpi-form-urgentDelivery">
                 </div>
 
                 <div class="form-group col-6 col-md-3">
@@ -145,6 +168,8 @@
                 </div>
             </div>
             
+            <h4>hours</h4>
+            <hr>
             <div class="row">
                 <div class="form-group col-6 col-md-3">
                     <label for="kpi-form-totalBillable">totalBillable</label>
@@ -165,18 +190,29 @@
                     <label for="kpi-form-leave">leave</label>
                     <input type="text" class="form-control" id="kpi-form-leave">
                 </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-afterHour">afterHour</label>
+                    <input type="text" class="form-control" id="kpi-form-afterHour">
+                </div>
+
+                <div class="form-group col-6 col-md-3">
+                    <label for="kpi-form-afterHourExtra">afterHourExtra</label>
+                    <input type="text" class="form-control" id="kpi-form-afterHourExtra">
+                </div>
             </div>
             
 
             <button type="button" id="kpi-form-set-hours" class="btn btn-primary">set hours/points</button>
             <hr/>
 
-            <select id="kpi-form-voteType" class="form-control">
+            <h4>dev vote</h4>
+            <hr>
+            <select id="kpi-form-userVoteType" class="form-control">
                 <option value="">voteType...</option>
                 <option value="shareVoteRecord">shareVoteRecord</option>
                 <option value="helpVoteRecord">helpVoteRecord</option>
             </select>
-            skip vote is not supported by the api
             <div class="form-check my-4">
                 <input class="form-check-input" type="radio" name="kpi-form-skipvote" id="kpi-form-skipvote-true" value="True" checked>
                 <label class="form-check-label" for="kpi-form-skipvote-true">
@@ -198,17 +234,17 @@
                 <div class="email-result-container my-4"></div>
                 <div class="form-group">
                     <label for="kpi-form-voteFor">voteFor</label>
-                    <textarea type="text" class="form-control email-result-input" id="kpi-form-voteFor" style="height: 100px;"></textarea>
+                    <textarea type="text" class="form-control email-result-input" id="kpi-form-userVoteFor" style="height: 100px;"></textarea>
                 </div>
             </div>
             <div class="form-group">
                 <label for="kpi-form-votePoint">votePoint</label>
-                <input type="text" class="form-control" id="kpi-form-votePoint">
+                <input type="text" class="form-control" id="kpi-form-userVotePoint">
             </div>
 
             <div class="form-group">
                 <label for="kpi-form-voteReason">voteReason</label>
-                <input type="text" class="form-control" id="kpi-form-voteReason">
+                <input type="text" class="form-control" id="kpi-form-userVoteReason">
             </div>
 
             <button type="button" id="kpi-form-clear-vote" class="btn btn-primary">clear</button>

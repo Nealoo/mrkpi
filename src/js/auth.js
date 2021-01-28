@@ -32,9 +32,11 @@ export default function(){
 }
 
 function bindLoginBtnAction(){
-    document.querySelector('#kpi-login')?.addEventListener('click', function(){
+    const loginButton = document.querySelector('#kpi-login');
+    loginButton?.addEventListener('click', function(){
         let userName = document.querySelector('#kpi-form-email').value;
         let password = document.querySelector('#kpi-form-key').value;
+        loginButton.innerHTML = 'loading...';
         validateUser(userName, password).then(res=>{
             // response format:
             // {
@@ -45,9 +47,11 @@ function bindLoginBtnAction(){
             if(res.isValidUser){
                 loginAction(userName, password, res.userTeam, res.userRole == 'admin');
             }else{
+                loginButton.innerHTML = 'log in';
                 alert('username or key is invalid');
             }
         }).catch(err=>{
+            loginButton.innerHTML = 'log in';
             console.warn(err);
         });
     }, false);

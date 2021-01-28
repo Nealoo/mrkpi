@@ -268,6 +268,8 @@ export default function(){
         emailResultContainer.innerHTML = '';
         emailResults = [];
         updateEmailInput();
+        document.querySelector('#kpi-form-userVotePoint').value = '';
+        document.querySelector('#kpi-form-userVoteReason').value = '';
     });
 
     // vote select code end

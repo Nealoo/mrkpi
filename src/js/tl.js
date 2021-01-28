@@ -60,29 +60,8 @@ export default function(){
     }
     
     function getHoursInfo(){
-        var voteType = document.querySelector("#kpi-form-voteType").value;
-        var votePoint = document.querySelector("#kpi-form-votePoint").value;
-        var voteReason = document.querySelector("#kpi-form-voteReason").value;
 
-        var lateDay = document.querySelector("#kpi-form-lateDay").value;
-        var leaveDay = document.querySelector("#kpi-form-leaveDay").value;
-        var earlyLeaveDay = document.querySelector("#kpi-form-earlyLeaveDay").value;
-        var wfhDay = document.querySelector("#kpi-form-wfhDay").value;
-        
-        var demoPoints = document.querySelector("#kpi-form-demoPoints").value;
-        var mrComponent = document.querySelector("#kpi-form-mrComponent").value;
-        var knowledgeReuse = document.querySelector("#kpi-form-knowledgeReuse").value;
-        var bugFromTester = document.querySelector("#kpi-form-bugFromTester").value;
-        var urgentDelivery = document.querySelector("#kpi-form-urgentDelivery").value;
-        var seriousMistakePoint = document.querySelector("#kpi-form-seriousMistakePoint").value;
-        var seriousMistakeReason = document.querySelector("#kpi-form-seriousMistakeReason").value;
-
-        var totalBillable = document.querySelector("#kpi-form-totalBillable").value;
-        var totalActualWorking = document.querySelector("#kpi-form-totalActualWorking").value;
-        var totalJiraWorking = document.querySelector("#kpi-form-totalJiraWorking").value;
-        var leave = document.querySelector("#kpi-form-leave").value;
-
-        var baseInfo = getBaseUserInfo();
+        const baseInfo = getBaseUserInfo();
         
         return {
             "email": baseInfo.email,
@@ -90,35 +69,41 @@ export default function(){
             "year": baseInfo.year,
             "week": baseInfo.week,
 
-            "voteType": voteType,
-            "votePoint": votePoint,
-            "voteReason": voteReason,
+            "voteType": document.querySelector("#kpi-form-voteType").value,
+            "votePoint": document.querySelector("#kpi-form-votePoint").value,
+            "voteReason": document.querySelector("#kpi-form-voteReason").value,
 
-            "lateDay": lateDay,
-            "leaveDay": leaveDay,
-            "earlyLeaveDay": earlyLeaveDay,
-            "wfhDay": wfhDay,
+            "lateDay": document.querySelector("#kpi-form-lateDay").value,
+            "leaveDay": document.querySelector("#kpi-form-leaveDay").value,
+            "earlyLeaveDay": document.querySelector("#kpi-form-earlyLeaveDay").value,
+            "wfhDay": document.querySelector("#kpi-form-wfhDay").value,
             
-            "demoPoints": demoPoints,
-            "mrComponent": mrComponent,
-            "knowledgeReuse": knowledgeReuse,
-            "bugFromTester": bugFromTester,
-            "urgentDelivery": urgentDelivery,
-            "seriousMistakePoint": seriousMistakePoint,
-            "seriousMistakeReason": seriousMistakeReason,
+            "demoPoints": document.querySelector("#kpi-form-demoPoints").value,
 
-            "totalBillable": totalBillable,
-            "totalActualWorking": totalActualWorking,
-            "totalJiraWorking": totalJiraWorking,
-            "leave": leave
+            "mrComponent": document.querySelector("#kpi-form-mrComponent").value,
+            "urgentDelivery": document.querySelector("#kpi-form-urgentDelivery").value,
+            "techLeadBonus": document.querySelector("#kpi-form-techLeadBonus").value,
+
+            "knowledgeReuse": document.querySelector("#kpi-form-knowledgeReuse").value,
+            "taskEfficiency": document.querySelector("#kpi-form-taskEfficiency").value,
+            "bugFromTester": document.querySelector("#kpi-form-bugFromTester").value,
+            "seriousMistakePoint": document.querySelector("#kpi-form-seriousMistakePoint").value,
+            "seriousMistakeReason": document.querySelector("#kpi-form-seriousMistakeReason").value,
+
+            "totalBillable": document.querySelector("#kpi-form-totalBillable").value,
+            "totalActualWorking": document.querySelector("#kpi-form-totalActualWorking").value,
+            "totalJiraWorking": document.querySelector("#kpi-form-totalJiraWorking").value,
+            "leave": document.querySelector("#kpi-form-leave").value,
+            "afterHour": document.querySelector("#kpi-form-afterHour").value,
+            "afterHourExtra": document.querySelector("#kpi-form-afterHourExtra").value
         }
     }
     
     function getVoteInfo(){
-        var userVoteType = document.querySelector("#kpi-form-voteType").value;
-        var userVoteFor = document.querySelector("#kpi-form-voteFor").value;
-        var userVotePoint = document.querySelector("#kpi-form-votePoint").value;
-        var userVoteReason = document.querySelector("#kpi-form-voteReason").value;
+        var userVoteType = document.querySelector("#kpi-form-userVoteType").value;
+        var userVoteFor = document.querySelector("#kpi-form-userVoteFor").value;
+        var userVotePoint = document.querySelector("#kpi-form-userVotePoint").value;
+        var userVoteReason = document.querySelector("#kpi-form-userVoteReason").value;
         var skipVote = document.querySelector("input[name=kpi-form-skipvote]:checked").value;
         
         var baseInfo = getBaseUserInfo();
@@ -384,7 +369,7 @@ export default function(){
     }
 
     const updateEmailInput = () => {
-        document.querySelector('#kpi-form-voteFor').value = emailResults.join(', ');
+        document.querySelector('#kpi-form-userVoteFor').value = emailResults.join(', ');
     }
 
     const voteClearBtn = document.querySelector('#kpi-form-clear-vote');
@@ -393,6 +378,8 @@ export default function(){
         emailResultContainer.innerHTML = '';
         emailResults = [];
         updateEmailInput();
+        document.querySelector('#kpi-form-userVotePoint').value = '';
+        document.querySelector('#kpi-form-userVoteReason').value = '';
     });
 
     // vote select code end
